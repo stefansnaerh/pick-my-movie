@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat:wght@100;300;400;500;600;700&family=Poppins:wght@200;300;400;500;600&family=Quantico&family=Sen&display=swap');
+
+
+$main-font: 'montserrat', sans-serif;
+$main-font-size: 16px;
+$main-font-weight:400;
+$sub-font-size: 14px;
+$font-color:#e6e6e6;
+
+$background-color:#272727;
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ----------------- CSS for header ---------------- */
+header {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: $background-color;
+    border: 2px solid #474747;
+}
+
+.logo-wrapper {
+    padding-left: 15px;
+}
+
+.logo {
+    font-family:'poppins';
+    font-size: 20px;
+    color: $font-color;
+    font-weight: 300;
+}
+
+.logo-smaller {
+    font-family: 'poppins';
+    color: $font-color;
+    font-size: 10px;
+    font-weight: 300;
+    padding-left: 6px;
+    margin-top: -7px;
+}
+
+/*----------------- CSS for main --------------------*/
+
+body {
+    background-color: $background-color;
+}
+
+.main-wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.random-movie-card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 85%;
+    height: 70vh;
+    background-color: #404040;
+    border-radius: 20px;
+    padding: 30px 10px 0px 10px;
+}
+
+.movie-card-headline {
+    font-family: $main-font;
+    color: $font-color;
+    font-size: $main-font-size;
+    font-weight: $main-font-weight;
+    width: 60vw;
+    text-align: center;
+}
+
+.random-movie-button {
+    margin-top: 20px;
+    width: 240px;
+    height: 40px;
+    color: $font-color;
+    font-family: montserrat, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #DB5B24;
+    border-radius: 5px;
+    border: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.random-movie-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 290px;
+    height: 220px;
+    border-radius: 20px;
+    background-color: #505050;
+    margin-top: 30px;
+}
+
+.quality-text {
+    font-family: $main-font;
+    color: $font-color;
+    font-size: $main-font-size;
+    font-weight: $main-font-weight;
+    width: 40vw;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.quality-sub-text {
+    font-family: $main-font;
+    color: $font-color;
+    font-size: $sub-font-size;
+    font-weight: $main-font-weight;
+    width: 40vw;
+    text-align: center;
+}
+
+.genres-headline {
+        font-family: $main-font;
+        color: $font-color;
+        font-size: $main-font-size;
+        font-weight: $main-font-weight;
+        width: 60vw;
+        text-align: center;
+        margin-top: 20px;
+    }
