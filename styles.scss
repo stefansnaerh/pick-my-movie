@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat:wght@100;300;400;500;600;700&family=Poppins:wght@200;300;400;500;600&family=Quantico&family=Sen&display=swap');
 
 
-$main-font: 'montserrat', sans-serif;
+$main-font: 'Poppins', sans-serif;
 $main-font-size: 16px;
 $main-font-weight:400;
 $sub-font-size: 14px;
+$min-font-size: 12px;
 $font-color:#e6e6e6;
 
 $background-color:#272727;
@@ -57,12 +58,12 @@ body {
     justify-content: center;
 }
 
-.random-movie-card {
+#random-movie-card {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 85%;
-    height: 70vh;
+    width: 310px;
+    height: 530px;
     background-color: #404040;
     border-radius: 20px;
     padding: 30px 10px 0px 10px;
@@ -73,7 +74,7 @@ body {
     color: $font-color;
     font-size: $main-font-size;
     font-weight: $main-font-weight;
-    width: 60vw;
+    width: 200px;
     text-align: center;
 }
 
@@ -131,3 +132,83 @@ body {
         text-align: center;
         margin-top: 20px;
     }
+
+    //  ------ CSS for random movies -----------//
+
+    #random-movie-container {
+        display: none;
+        background-color: #404040;
+    }
+
+#movie-poster {
+    width: 290px;
+    height: 220px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+#movie-title {
+    font-family: $main-font;
+    font-size: 18px;
+    color: $font-color;
+    font-weight: 500;
+}
+.date-rating-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+#release-date {
+    font-family: $main-font;
+    color: $font-color;
+    font-weight: $main-font-weight;
+    font-size: $sub-font-size; 
+}
+
+.star-rating-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    border-radius: 20px;
+    width: 75px;
+    height: 32px;
+}
+
+#movie-rating {
+   font-family: $main-font;
+   color: #FFCE31;
+}
+.star {
+    padding-right: 5px;
+    height: 18px;
+    width: 18px;
+    padding-bottom: 1px;
+}
+
+.overview {
+    font-family: $main-font;
+    color: $font-color;
+    font-weight: $main-font-weight;
+    font-size: 18px; 
+    margin-bottom: 5px;
+}
+
+#overview-sub {
+    font-family: $main-font;
+    color: $font-color;
+    font-weight: $main-font-weight;
+    font-size: $sub-font-size; 
+}
+
+#read-more {
+    font-family: $min-font-size;
+    color: #FFCE31;
+}
+#read-less {
+    font-family: $min-font-size;
+    color: #FFCE31;
+}

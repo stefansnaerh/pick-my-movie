@@ -15,17 +15,30 @@
         </div>
     </header>
     <section class="main-wrapper">
-        <div class="random-movie-card">
-            <h1 class="movie-card-headline">Pick your genres, push the button and get a random movie to watch!</h1>
-            <button id="random-movie-button" class="random-movie-button" type="button" onclick="getMovie()">Get me my movie!</button>
+        <div id="random-movie-card">
+            <h1 class="movie-card-headline" id="movie-card-headline">Push the button and get a random movie to watch!</h1>
+            <button id="random-movie-button" class="random-movie-button" type="button">Get me my movie!</button>
             <div class="random-movie-box" id="random-movie-box">
-                <h1 class="quality-text">Quality over quantity!</h1>
-                <h3 id="movie-title"></h3>
-                <h2 class="quality-sub-text">All titles have over 7 in ratings!</h2>
-            </div>
-            <div>
-                <h1 class="genres-headline">My genres</h1>
-            </div>   
+                <div id="quality-text-container">
+                <h1 class="quality-text" id="quality-text">Quality over quantity!</h1>
+                <h2 class="quality-sub-text" id="quality-sub-text">All titles have over 7 in ratings!</h2>
+                </div>
+                <div id="random-movie-container">
+                    <h1 id="movie-title"></h1>
+                    <div class="date-rating-container">
+                        <p id="release-date"></p>
+                        <div class="star-rating-container">
+                        <img src="./images/Star.png" class="star"></img>
+                        <p id="movie-rating"></p>
+                        </div>  
+                    </div>
+                    <img src="" id="movie-poster"></img>
+                    <h2 class="overview">Overview</h2>
+                    <p id="overview-sub"></p>
+                    <span id="read-more"></span>
+                    <span id="read-less"></span>
+                </div>
+            </div> 
         </div>
 
     </section>
