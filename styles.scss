@@ -55,7 +55,8 @@ body {
 .main-wrapper {
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #random-movie-card {
@@ -157,10 +158,11 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 #release-date {
+    padding-top: 5px;
     font-family: $main-font;
     color: $font-color;
     font-weight: $main-font-weight;
@@ -175,18 +177,19 @@ body {
     background-color: #000000;
     border-radius: 20px;
     width: 75px;
-    height: 32px;
+    height: 30px;
 }
 
 #movie-rating {
    font-family: $main-font;
    color: #FFCE31;
+   font-size: $sub-font-size;
 }
 .star {
     padding-right: 5px;
-    height: 18px;
-    width: 18px;
-    padding-bottom: 1px;
+    height: 16px;
+    width: 16px;
+    padding-bottom: 2px;
 }
 
 .overview {
@@ -211,4 +214,54 @@ body {
 #read-less {
     font-family: $min-font-size;
     color: #FFCE31;
+}
+
+// ---------- CSS for top movies ----------------//
+
+#top-movies-container {
+    margin-top: 40px;
+}
+
+.top-movies-headline {
+    font-family: $main-font;
+    color: $font-color;
+    font-size: $main-font-size;
+    font-weight: $main-font-weight;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#movie-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.movies-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.top-movies-poster {
+    height: 160px;
+    width: 160px;
+    border-radius: 20px;
+}
+
+.top-movies-title {
+    font-family: $main-font;
+    color: $font-color;
+    font-size: 14px;
+    font-weight: 500;
+    width: 160px;
+}
+
+.top-movies-release {
+    font-family: $main-font;
+    color: $font-color;
+    font-size: 12px;
+    font-weight: $main-font-weight;
 }

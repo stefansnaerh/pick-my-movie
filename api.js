@@ -5,6 +5,7 @@ const BASE_URL = config.api_base_url
 const API_KEY = config.api_key
 const API_RANDOM_OVER_7 = config.api_over_7
 const IMAGE_URL = config.image_base_url
+const TOP_MOVIES = config.api_top_rated_movies
 
 
 // getting a random page number since it always starts at page 1
@@ -13,6 +14,7 @@ console.log(PAGE_NUMBER)
 
 
 
+// Function that gets a random movie with over 7 in ratings when button clicks. 
 async function getMovie() {
     // Getting a random number from 1-20 to get random movie from the API array
     let randomMovie = Math.floor(Math.random() * 20)
@@ -77,29 +79,58 @@ async function getMovie() {
    
 }
 
-
-
-
-
-
 document.getElementById("random-movie-button").addEventListener("click", getMovie)
 
 
 
 
+async function getTopRatedMovies() {
+
+    // Getting the top rated movies
+    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=500&with_watch_monetization_types=flatrate`);
+    let responseData = await response.json()
+    console.log(responseData)
+
+
+    const movie = responseData.results
+
+    // Using the forEach method to build the html for each element in movie array
+    movie.forEach((movie) => {
+ 
+    const poster = movie.poster_path
+    const movieTitle = movie.title
+    const yearOfRelease = movie.release_date
+    const movieContainer = document.getElementById("movie-container")
+
+    const topMovieWrapper = document.createElement("div")
+    topMovieWrapper.classList.add("movies-container")
+    movieContainer.appendChild(topMovieWrapper)
+
+
+
+    
+    const topMoviePoster = document.createElement("img")
+    topMoviePoster.classList.add("top-movies-poster")
+    topMovieWrapper.appendChild(topMoviePoster)
+    topMoviePoster.src = `${IMAGE_URL}${poster}`
+
+
+    const topMovieTitle = document.createElement("h2")
+    topMovieTitle.classList.add("top-movies-title")
+    topMovieWrapper.appendChild(topMovieTitle)
+    topMovieTitle.innerHTML = `${movieTitle}`
+
+    const topMovieRelease = document.createElement("h3")
+    topMovieRelease.classList.add("top-movies-release")
+    topMovieWrapper.appendChild(topMovieRelease)
+    topMovieRelease.innerHTML= `${yearOfRelease}`
+
+
+})
 
 
 
 
+}
 
-
-
-
-// api call fyrir allar US myndir með yfir 7 í einkunn //
-
-//https://api.themoviedb.org/3/discover/movie?api_key=6af2e686b425c8e3274b4275976091e1&language=en-US&page=1&vote_average.gte=7&with_watch_monetization_types=flatrate//
-
-// api call fyrir myndir yfir 7 í einkun eftir 1980
-// https://api.themoviedb.org/3/discover/movie?api_key=6af2e686b425c8e3274b4275976091e1&language=en-US&page=1&release_date.gte=1980&vote_average.gte=7&with_watch_monetization_types=flatrate //
-
-// þyrfti að gera math random fyrir page=1 líka //
+getTopRatedMovies()
