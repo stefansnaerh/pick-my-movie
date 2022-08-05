@@ -91,29 +91,46 @@ async function getTopRatedMovies() {
     let responseData = await response.json()
     console.log(responseData)
 
+    // storing the results in an array
+    const movies = responseData.results
+    // only using the first four movies using slice method
+    const movie = movies.slice(0, 4)
+    const movieContainer = document.getElementById("movie-container")
 
-    const movie = responseData.results
+    console.log(movie)
 
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
     const poster = movie.poster_path
     const movieTitle = movie.title
-    const yearOfRelease = movie.release_date
-    const movieContainer = document.getElementById("movie-container")
+    const yearOfRelease = movie.release_date.slice(-10, -6)
+    const rating = movie.vote_average
+    
 
     const topMovieWrapper = document.createElement("div")
     topMovieWrapper.classList.add("movies-container")
     movieContainer.appendChild(topMovieWrapper)
 
-
-
-    
     const topMoviePoster = document.createElement("img")
     topMoviePoster.classList.add("top-movies-poster")
+    topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
     topMovieWrapper.appendChild(topMoviePoster)
     topMoviePoster.src = `${IMAGE_URL}${poster}`
 
+    const starWrapper = document.createElement("span")
+    starWrapper.classList.add("top-movies-star-wrapper")
+    topMovieWrapper.appendChild(starWrapper)
+
+    const star = document.createElement("img")
+    star.classList.add("top-movies-star")
+    star.src = `./images/Star.png`
+    starWrapper.appendChild(star)
+
+    const voteAverage = document.createElement("p")
+    voteAverage.classList.add("top-movies-rating")
+    starWrapper.appendChild(voteAverage)
+    voteAverage.innerHTML = `${rating}`
 
     const topMovieTitle = document.createElement("h2")
     topMovieTitle.classList.add("top-movies-title")
@@ -125,8 +142,12 @@ async function getTopRatedMovies() {
     topMovieWrapper.appendChild(topMovieRelease)
     topMovieRelease.innerHTML= `${yearOfRelease}`
 
-
 })
+
+const viewAllButton = document.createElement("button")
+movieContainer.appendChild(viewAllButton)
+viewAllButton.classList.add("view-all-button")
+viewAllButton.innerHTML = "View all"
 
 
 
@@ -134,3 +155,8 @@ async function getTopRatedMovies() {
 }
 
 getTopRatedMovies()
+
+
+
+
+

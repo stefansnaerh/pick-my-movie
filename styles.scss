@@ -7,6 +7,7 @@ $main-font-weight:400;
 $sub-font-size: 14px;
 $min-font-size: 12px;
 $font-color:#e6e6e6;
+$yellow: #FFCE31;
 
 $background-color:#272727;
 
@@ -182,7 +183,7 @@ body {
 
 #movie-rating {
    font-family: $main-font;
-   color: #FFCE31;
+   color: $yellow;
    font-size: $sub-font-size;
 }
 .star {
@@ -208,12 +209,21 @@ body {
 }
 
 #read-more {
-    font-family: $min-font-size;
-    color: #FFCE31;
+    font-family: $main-font;
+    font-size: $sub-font-size;
+    color: $yellow;
+    background: none;
+    border: none;
+    cursor: pointer;
+
 }
 #read-less {
-    font-family: $min-font-size;
-    color: #FFCE31;
+    font-family: $main-font;
+    font-size: $sub-font-size;
+    color: $yellow;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 // ---------- CSS for top movies ----------------//
@@ -249,6 +259,33 @@ body {
     height: 160px;
     width: 160px;
     border-radius: 20px;
+    position: relative;
+}
+
+.top-movies-rating {
+    font-family: $main-font;
+    color: $yellow;
+    font-size: 12px;
+    margin-left: 3px;
+}
+
+.top-movies-star-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-end;
+    justify-content: center;
+    background-color: #000000;
+    border-radius: 20px;
+    width: 50px;
+    height: 26px;
+    margin-top: 130px;
+    margin-right: 8px;
+}
+
+.star {
+    padding-bottom: 2px;
 }
 
 .top-movies-title {
@@ -264,4 +301,13 @@ body {
     color: $font-color;
     font-size: 12px;
     font-weight: $main-font-weight;
+}
+.view-all-button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: $main-font;
+    color: $yellow;
+    cursor: pointer;
+    margin-left: auto;
 }

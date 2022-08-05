@@ -195,13 +195,21 @@ body {
 }
 
 #read-more {
-  font-family: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   color: #FFCE31;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 #read-less {
-  font-family: 12px;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
   color: #FFCE31;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 #top-movies-container {
@@ -236,6 +244,33 @@ body {
   height: 160px;
   width: 160px;
   border-radius: 20px;
+  position: relative;
+}
+
+.top-movies-rating {
+  font-family: "Poppins", sans-serif;
+  color: #FFCE31;
+  font-size: 12px;
+  margin-left: 3px;
+}
+
+.top-movies-star-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+  justify-content: center;
+  background-color: #000000;
+  border-radius: 20px;
+  width: 50px;
+  height: 26px;
+  margin-top: 130px;
+  margin-right: 8px;
+}
+
+.star {
+  padding-bottom: 2px;
 }
 
 .top-movies-title {
@@ -251,4 +286,14 @@ body {
   color: #e6e6e6;
   font-size: 12px;
   font-weight: 400;
+}
+
+.view-all-button {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  font-family: "Poppins", sans-serif;
+  color: #FFCE31;
+  cursor: pointer;
+  margin-left: auto;
 }/*# sourceMappingURL=styles.css.map */
