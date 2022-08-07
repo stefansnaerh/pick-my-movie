@@ -6,6 +6,7 @@ const API_KEY = config.api_key
 const API_RANDOM_OVER_7 = config.api_over_7
 const IMAGE_URL = config.image_base_url
 const TOP_MOVIES = config.api_top_rated_movies
+const TOP_MOVIES_2000 = config.api_top_rated_movies_2000
 
 
 // getting a random page number since it always starts at page 1
@@ -84,10 +85,12 @@ document.getElementById("random-movie-button").addEventListener("click", getMovi
 
 
 
+// function that gets top rated movies from the movie database
+
 async function getTopRatedMovies() {
 
     // Getting the top rated movies
-    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&vote_count.gte=500&with_watch_monetization_types=flatrate`);
+    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES}`);
     let responseData = await response.json()
     console.log(responseData)
 
@@ -150,12 +153,77 @@ viewAllButton.classList.add("view-all-button")
 viewAllButton.innerHTML = "View all"
 
 
-
-
 }
 
 getTopRatedMovies()
 
+
+async function getTopRatedMovies2000() {
+
+    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES_2000}`);
+    let responseData = await response.json()
+    console.log(responseData)
+
+    const movies = responseData.results
+    const movie = movies.slice(0, 4)
+
+    const movieContainer = document.getElementById("top-movies-2000-container")
+
+    movie.forEach((movie) => {
+
+        const poster = movie.poster_path
+        const movieTitle = movie.title
+        const yearOfRelease = movie.release_date.slice(-10, -6)
+        const rating = movie.vote_average
+
+        const topMovieWrapper = document.createElement("div")
+        topMovieWrapper.classList.add("movies-container")
+        movieContainer.appendChild(topMovieWrapper)
+
+        const topMoviePoster = document.createElement("img")
+        topMoviePoster.classList.add("top-movies-poster")
+        topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
+        topMovieWrapper.appendChild(topMoviePoster)
+        topMoviePoster.src = `${IMAGE_URL}${poster}`
+
+        const starWrapper = document.createElement("span")
+        starWrapper.classList.add("top-movies-star-wrapper")
+        topMovieWrapper.appendChild(starWrapper)
+    
+        const star = document.createElement("img")
+        star.classList.add("top-movies-star")
+        star.src = `./images/Star.png`
+        starWrapper.appendChild(star)
+
+        const voteAverage = document.createElement("p")
+        voteAverage.classList.add("top-movies-rating")
+        starWrapper.appendChild(voteAverage)
+        voteAverage.innerHTML = `${rating}`
+
+        const topMovieTitle = document.createElement("h2")
+        topMovieTitle.classList.add("top-movies-title")
+        topMovieWrapper.appendChild(topMovieTitle)
+        topMovieTitle.innerHTML = `${movieTitle}`
+
+        const topMovieRelease = document.createElement("h3")
+        topMovieRelease.classList.add("top-movies-release")
+        topMovieWrapper.appendChild(topMovieRelease)
+        topMovieRelease.innerHTML= `${yearOfRelease}`
+
+
+    })
+    
+    
+
+    const viewAllButton = document.createElement("button")
+    movieContainer.appendChild(viewAllButton)
+    viewAllButton.classList.add("view-all-button")
+    viewAllButton.innerHTML = "View all"
+
+
+}
+
+getTopRatedMovies2000()
 
 
 

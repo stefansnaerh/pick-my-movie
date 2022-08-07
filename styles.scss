@@ -239,9 +239,10 @@ body {
     font-weight: $main-font-weight;
     margin-left: 20px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-#movie-container {
+.movie-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
