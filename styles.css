@@ -10,7 +10,7 @@ header {
   align-items: center;
   height: 70px;
   background-color: #272727;
-  border: 2px solid #474747;
+  border-bottom: 2px solid #474747;
 }
 
 .logo-wrapper {
@@ -22,6 +22,8 @@ header {
   font-size: 20px;
   color: #e6e6e6;
   font-weight: 300;
+  position: absolute;
+  color: #FFFFFF;
 }
 
 .logo-smaller {
@@ -31,6 +33,136 @@ header {
   font-weight: 300;
   padding-left: 6px;
   margin-top: -7px;
+}
+
+.container {
+  max-width: 1050px;
+  width: 90%;
+  margin: auto;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .menu-items {
+  display: flex;
+}
+
+.navbar .navbar-container li {
+  list-style: none;
+}
+
+.navbar .navbar-container a {
+  text-decoration: none;
+  font-family: "poppins";
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7rem;
+}
+
+.navbar .navbar-container a:hover {
+  font-weight: bolder;
+}
+
+.navbar-container {
+  display: block;
+  position: relative;
+  height: 60px;
+}
+
+.navbar-container .checkbox {
+  position: absolute;
+  display: block;
+  height: 32px;
+  width: 32px;
+  top: 20px;
+  left: 20px;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.navbar-container .hamburger-lines {
+  display: block;
+  height: 26px;
+  width: 32px;
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbar-container .hamburger-lines .line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.navbar-container .hamburger-lines .line1 {
+  transform-origin: 0% 0%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar-container .hamburger-lines .line2 {
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-container .hamburger-lines .line3 {
+  transform-origin: 0% 100%;
+  transition: transform 0.4s ease-in-out;
+}
+
+.navbar .menu-items {
+  padding-top: 120px;
+  box-shadow: inset 0 0 2000px #272727;
+  height: 100vh;
+  width: 100%;
+  transform: translate(0, -150%);
+  display: flex;
+  flex-direction: column;
+  margin-left: -40px;
+  padding-left: 50px;
+  transition: transform 0.5s ease-in-out;
+  text-align: center;
+}
+
+.navbar .menu-items li {
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.navbar-container input[type=checkbox]:checked ~ .menu-items {
+  transform: translateX(0);
+}
+
+.navbar-container input[type=checkbox]:checked ~ .hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+.navbar-container input[type=checkbox]:checked ~ .hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.navbar-container input[type=checkbox]:checked ~ .hamburger-lines .line3 {
+  transform: rotate(-45deg);
+}
+
+.navbar-container input[type=checkbox]:checked ~ .logo {
+  display: none;
 }
 
 /*----------------- CSS for main --------------------*/
@@ -45,15 +177,28 @@ body {
   align-items: center;
 }
 
+@media (min-width: 1064px) {
+  .main-wrapper {
+    display: grid;
+    grid-template-rows: 250px 250px 250px 250px;
+    grid-template-areas: "sidebar sidebar topMovies topMovies " "sidebar sidebar topMovies topMovies " "sidebar sidebar topMovies topMovies" "sidebar sidebar topMovies topMovies";
+    margin-top: -7rem;
+  }
+  #random-movie-card {
+    margin-left: 2rem;
+  }
+}
 #random-movie-card {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 310px;
   height: 530px;
+  overflow: auto;
   background-color: #404040;
   border-radius: 20px;
   padding: 30px 10px 0px 10px;
+  grid-area: sidebar;
 }
 
 .movie-card-headline {
@@ -213,7 +358,12 @@ body {
 }
 
 #top-movies-container {
+  display: flex;
+  flex-direction: column;
   margin-top: 40px;
+  grid-area: topMovies;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .top-movies-headline {
@@ -221,18 +371,18 @@ body {
   color: #e6e6e6;
   font-size: 16px;
   font-weight: 400;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 1.5rem;
+  margin-left: 0.5rem;
+  margin-top: 40px;
+  align-self: flex-start;
 }
 
 .movie-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-right: 20px;
+  justify-content: space-around;
+  gap: 10px;
 }
 
 .movies-container {
@@ -280,6 +430,8 @@ body {
   font-size: 14px;
   font-weight: 500;
   width: 160px;
+  margin-top: 8px;
+  margin-bottom: 2px;
 }
 
 .top-movies-release {
@@ -289,6 +441,21 @@ body {
   font-weight: 400;
 }
 
+/*
+.view-all-button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: $main-font;
+    color: $yellow;
+    cursor: pointer;
+    margin-left: auto;
+    align-self: flex-end;
+    justify-self: flex-end;
+    position: relative;
+}
+
+*/
 .view-all-button {
   background: none !important;
   border: none;
@@ -296,5 +463,6 @@ body {
   font-family: "Poppins", sans-serif;
   color: #FFCE31;
   cursor: pointer;
-  margin-left: auto;
+  align-self: flex-end;
+  margin-right: 1.5rem;
 }/*# sourceMappingURL=styles.css.map */

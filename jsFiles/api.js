@@ -6,7 +6,10 @@ const API_KEY = config.api_key
 const API_RANDOM_OVER_7 = config.api_over_7
 const IMAGE_URL = config.image_base_url
 const TOP_MOVIES = config.api_top_rated_movies
-const TOP_MOVIES_2000 = config.api_top_rated_movies_2000
+const TOP_MOVIES_2000 = config.api_top_rated_popularity
+
+
+
 
 
 // getting a random page number since it always starts at page 1
@@ -47,11 +50,11 @@ async function getMovie() {
     overviewP.innerHTML = movieOverview
 
     // If the overview text is longer then 120 letters, add a read more button
-    if (movieOverview.length > 120 ) {
+   // if (movieOverview.length > 120 ) {
         overviewP.innerHTML =  `${movieOverview.slice(0, 120)}`
 
         const readMore = document.getElementById("read-more")
-        readMore.innerHTML = "...read all"
+        readMore.innerHTML = "...read more"
 
         function readMoreButton() {
             overviewP.innerHTML = movieOverview
@@ -77,8 +80,8 @@ async function getMovie() {
 
 
 
-   
-}
+
+
 
 document.getElementById("random-movie-button").addEventListener("click", getMovie)
 
@@ -97,7 +100,23 @@ async function getTopRatedMovies() {
     // storing the results in an array
     const movies = responseData.results
     // only using the first four movies using slice method
-    const movie = movies.slice(0, 4)
+
+   let movie = movies.slice(0, 4)
+
+
+    const renderFourMovies = window.matchMedia('(min-width: 1040px)')
+
+    /*
+    function loadFourMovies(e){
+    if (e.matches) {
+        movie =  movies.slice(0, 3)
+    }
+    }
+    renderFourMovies.addEventListener("change", loadFourMovies)
+    loadFourMovies(renderFourMovies)
+
+    */
+
     const movieContainer = document.getElementById("movie-container")
 
     console.log(movie)
@@ -127,7 +146,7 @@ async function getTopRatedMovies() {
 
     const star = document.createElement("img")
     star.classList.add("top-movies-star")
-    star.src = `./images/Star.png`
+    star.src = `../images/Star.png`
     starWrapper.appendChild(star)
 
     const voteAverage = document.createElement("p")
@@ -145,14 +164,19 @@ async function getTopRatedMovies() {
     topMovieWrapper.appendChild(topMovieRelease)
     topMovieRelease.innerHTML= `${yearOfRelease}`
 
-})
 
+    
+
+
+
+})
+/*
 const viewAllButton = document.createElement("button")
 movieContainer.appendChild(viewAllButton)
 viewAllButton.classList.add("view-all-button")
 viewAllButton.innerHTML = "View all"
 
-
+*/
 }
 
 getTopRatedMovies()
@@ -192,7 +216,7 @@ async function getTopRatedMovies2000() {
     
         const star = document.createElement("img")
         star.classList.add("top-movies-star")
-        star.src = `./images/Star.png`
+        star.src = `../images/Star.png`
         starWrapper.appendChild(star)
 
         const voteAverage = document.createElement("p")
@@ -210,21 +234,15 @@ async function getTopRatedMovies2000() {
         topMovieWrapper.appendChild(topMovieRelease)
         topMovieRelease.innerHTML= `${yearOfRelease}`
 
+        
+
 
     })
     
     
 
-    const viewAllButton = document.createElement("button")
-    movieContainer.appendChild(viewAllButton)
-    viewAllButton.classList.add("view-all-button")
-    viewAllButton.innerHTML = "View all"
-
 
 }
 
 getTopRatedMovies2000()
-
-
-
 
