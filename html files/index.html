@@ -8,30 +8,29 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="container navbar-container">
-                <div class="logo-wrapper">
-                    <h1 class="logo">pmm</h1>
-                    <h2 class="logo-smaller" id="logo-smaller">Pick my movie</h2>
-                </div>
-                <input class="checkbox" type="checkbox" name="" id="" />
-                <div class="hamburger-lines">
-                  <span class="line line1"></span>
-                  <span class="line line2"></span>
-                  <span class="line line3"></span>
-                </div>  
-             
-              <div class="menu-items">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">blogs</a></li>
-                <li><a href="#">portfolio</a></li>
-                <li><a href="#">contact</a></li>
-              </div>
+    <header class="header-container">
+            <div class="logo-wrapper">
+                <h1 class="logo">pmm</h1>
+                <h2 class="logo-smaller">Pick my movie</h2>
             </div>
-        </div>
-
+       
+        <nav role='navigation'>
+            <div id="menuToggle">
+                
+              <input type="checkbox" />
+              <span></span>
+              <span></span>
+              <span></span>
+             
+              <ul id="menu">
+                <a href="#"><li>Home</li></a>
+                <a href="#"><li>About</li></a>
+                <a href="#"><li>Info</li></a>
+                <a href="#"><li>Contact</li></a>
+                <a href="https://erikterwan.com/" target="_blank"><li>Show me more</li></a>
+              </ul>
+            </div>
+          </nav>
     </header>
     <section class="main-wrapper">
         <div id="random-movie-card" aria-label="random movie generator">

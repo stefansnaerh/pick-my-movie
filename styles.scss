@@ -17,10 +17,19 @@ $background-color:#272727;
     padding: 0;
 }
 
+body {
+    
+
+overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
+
+
+}
+
 
 /* ----------------- CSS for header ---------------- */
 header {
     display: flex;
+    flex-direction: row;
     align-items: center;
     height: 70px;
     background-color: $background-color;
@@ -28,7 +37,11 @@ header {
 }
 
 .logo-wrapper {
-    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 60px;
+    margin-left: 18px;
+    margin-top: 15px;
 }
 
 .logo {
@@ -36,7 +49,6 @@ header {
     font-size: 20px;
     color: $font-color;
     font-weight: 300;
-    position: absolute;
     color: #FFFFFF;
 }
 
@@ -50,137 +62,158 @@ header {
 }
 
 
-.container {
-    max-width: 1050px;
-    width: 90%;
-    margin: auto;
-  }
+a
+{
+  text-decoration: none;
+  color: #232323;
   
-  .navbar {
-    width: 100%;
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar .menu-items {
-    display: flex;
-  }
-  
-  .navbar .navbar-container li {
-    list-style: none;
-  }
-  
-  .navbar .navbar-container a {
-    text-decoration: none;
-    font-family: 'poppins';
-    color: #FFFFFF;
-    font-weight: 500;
-    font-size: $main-font-size;
-    padding: 0.7rem;
-  }
-  
-  .navbar .navbar-container a:hover{
-      font-weight: bolder;
-  }
-  
-  .navbar-container {
-    display: block;
-    position: relative;
-    height: 60px;
-  }
-  
-  .navbar-container .checkbox {
-    position: absolute;
-    display: block;
-    height: 32px;
-    width: 32px;
-    top: 20px;
-    left: 20px;
-    z-index: 5;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  .navbar-container .hamburger-lines {
-    display: block;
-    height: 26px;
-    width: 32px;
-    position: absolute;
-    top: 17px;
-    left: 20px;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .navbar-container .hamburger-lines .line {
-    display: block;
-    height: 4px;
-    width: 100%;
-    border-radius: 10px;
-    background: #ffffff;
-  }
-  
-  .navbar-container .hamburger-lines .line1 {
-    transform-origin: 0% 0%;
-    transition: transform 0.4s ease-in-out;
-  }
-  
-  .navbar-container .hamburger-lines .line2 {
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .navbar-container .hamburger-lines .line3 {
-    transform-origin: 0% 100%;
-    transition: transform 0.4s ease-in-out;
-  }
-  
-  .navbar .menu-items {
-    padding-top: 120px;
-    box-shadow: inset 0 0 2000px #272727;
-    height: 100vh;
-    width: 100%;
-    transform: translate(0 , -150%);
-    display: flex;
-    flex-direction: column;
-    margin-left: -40px;
-    padding-left: 50px;
-    transition: transform 0.5s ease-in-out;
-    text-align: center;
-  }
-  
-  .navbar .menu-items li {
-    margin-bottom: 1.2rem;
-    font-size: 1.5rem;
-    font-weight: 500;
-  }
-  
- 
-  .navbar-container input[type="checkbox"]:checked ~ .menu-items {
-    transform: translateX(0);
-  }
-  
-  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
-    transform: rotate(45deg);
-  }
-  
-  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
-    transform: scaleY(0);
-  }
-  
-  .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
-    transform: rotate(-45deg);
-  }
-  
-  .navbar-container input[type="checkbox"]:checked ~ .logo{
-    display: none;
-  }
+  transition: color 0.3s ease;
+}
 
+a:hover
+{
+  color: tomato;
+}
+
+#menuToggle
+{
+  display: block;
+  position: absolute;
+  top: 25px;
+  right: 18px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #cdcdcd;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 125px;
+  right: 0px;
+  
+  background: $background-color;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  display: flex;
+  font-size: 22px;
+  font-family: 'poppins';
+  color: $font-color;
+  justify-content: center;
+}
+
+/*
+ * And let's fade it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  #menu {
+    transform: none;
+    opacity: 0;
+
+    transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+}
 
 /*----------------- CSS for main --------------------*/
 
