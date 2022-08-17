@@ -18,7 +18,9 @@ $background-color:#272727;
 }
 
 body {
-    
+    margin: 0;
+    padding: 0;
+ 
 
 overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
 
@@ -28,10 +30,14 @@ overflow-x: hidden; /* needed because hiding the menu on the right side is not p
 
 /* ----------------- CSS for header ---------------- */
 header {
+    position: fixed;
+    width: 100vw;
     display: flex;
+    z-index: 9999;
     flex-direction: row;
     align-items: center;
     height: 70px;
+    margin-top: -20px;
     background-color: $background-color;
     border-bottom: 2px solid #474747;
 }
@@ -189,12 +195,16 @@ a:hover
 
 #menu li
 {
-  padding: 10px 0;
+  padding: 20px 0;
   display: flex;
   font-size: 22px;
   font-family: 'poppins';
   color: $font-color;
   justify-content: center;
+}
+
+#menu li:hover {
+    font-weight: bolder;
 }
 
 /*
