@@ -40,6 +40,7 @@ header {
     margin-top: -20px;
     background-color: $background-color;
     border-bottom: 2px solid #474747;
+    grid-area: head;
 }
 
 .logo-wrapper {
@@ -111,9 +112,6 @@ a:hover
   -webkit-touch-callout: none;
 }
 
-/*
- * Just a quick hamburger
- */
 #menuToggle span
 {
   display: block;
@@ -152,29 +150,19 @@ a:hover
   background: #cdcdcd;
 }
 
-/*
- * But let's hide the middle one.
- */
 #menuToggle input:checked ~ span:nth-last-child(3)
 {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/*
- * Ohyeah and the last one should go the other direction
- */
 #menuToggle input:checked ~ span:nth-last-child(2)
 {
   opacity: 1;
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-#menu
+#menu-mobile
 {
   position: absolute;
   width: 100vw;
@@ -193,29 +181,41 @@ a:hover
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
 }
 
-#menu li
+#menu-mobile li
 {
-  padding: 20px 0;
+  padding-top: 2rem;
   display: flex;
   font-size: 22px;
+  padding-left: 2rem;
   font-family: 'poppins';
   color: $font-color;
   justify-content: center;
 }
 
-#menu li:hover {
+#menu-mobile li:hover {
     font-weight: bolder;
 }
 
-/*
- * And let's fade it in from the left
- */
 #menuToggle input:checked ~ ul
 {
   transform: none;
   opacity: 1;
 }
 
+#menu-desktop {
+    display: none;
+
+}
+
+#menu-desktop li {
+    font-family: 'poppins';
+    color: $font-color;
+    list-style: none;
+    display: inline;
+    margin-right: 1.2rem;
+}
+
+/*
 @media screen and (max-width: 768px) {
   #menu {
     transform: none;
@@ -224,7 +224,24 @@ a:hover
     transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
 }
-
+*/
+@media (min-width: 900px){
+    #menuToggle {
+        display: none;
+    }
+    #menu-desktop {
+        display: initial;
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 18px;
+        
+        z-index: 1;
+        
+        -webkit-user-select: none;
+        user-select: none;
+    }
+}
 /*----------------- CSS for main --------------------*/
 
 body {
@@ -237,12 +254,13 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
+/*
 @media (min-width: 1064px) {
     .main-wrapper {
         display: grid;
         grid-template-rows: 250px 250px 250px 250px ;
         grid-template-areas: 
+        "head head head head"
         "sidebar sidebar topMovies topMovies "
         "sidebar sidebar topMovies topMovies "
         "sidebar sidebar topMovies topMovies"
@@ -256,9 +274,10 @@ body {
     
 }
 
-
+*/
 
 #random-movie-card {
+    margin-top: 5rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -536,4 +555,18 @@ body {
     cursor: pointer;
     align-self: flex-end;
     margin-right: 1.5rem;
+}
+
+footer {
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+    height: 50px;
+}
+
+footer h1 {
+    font-family: $main-font;
+    font-size: $main-font-size;
+    color: $font-color;
+    font-weight: $main-font-weight;
 }
