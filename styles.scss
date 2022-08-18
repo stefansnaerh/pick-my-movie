@@ -449,10 +449,10 @@ body {
     color: $font-color;
     font-size: $main-font-size;
     font-weight: $main-font-weight;
-    margin-bottom: 1.5rem;
-    margin-left: 0.5rem;
-    margin-top: 40px;
-    align-self: flex-start;
+    margin-bottom: 1.5em;
+    margin-left: 1vw;
+    margin-top: 3em;
+    align-self: center;
 }
 
 .movie-container {
@@ -470,8 +470,8 @@ body {
 }
 
 .top-movies-poster {
-    height: 160px;
-    width: 160px;
+    height: 10rem;
+    width: 10rem;
     border-radius: 20px;
     position: relative;
 }
@@ -593,17 +593,18 @@ footer h1 {
     
     .main-wrapper {
             display: grid;
-            grid-template-rows: 250px 250px 250px 250px ;
+            grid-template-rows: 250px 250px 250px 250px 250px;
             grid-template-areas: 
-            "header header header header"
-            "sidebar sidebar topMovies topMovies"
-            "sidebar sidebar topMovies topMovies"
-            "sidebar sidebar topMovies topMovies"
+            "header header header header header"
+            "sidebar sidebar topMovies topMovies topMovies"
+            "sidebar sidebar topMovies topMovies topMovies"
+            "sidebar sidebar topMovies topMovies topMovies"
             ;
             margin-top: -7rem;
         }
         #random-movie-card {
-            margin-left: 2rem;
+           justify-self: center;
+           padding-bottom: 5.8rem;
         }
 
         .movies-container:last-child {
@@ -623,7 +624,30 @@ footer h1 {
         }
         .movie-container {
             gap: 1rem;
+        } 
+        .top-movies-headline {
+            font-size: 18px;
         }
-        
+         
+}
 
+
+@media (min-width: 1120px) {
+    .top-movies-poster {
+        width: 13em;
+        height: 12em
+    }
+    #random-movie-card {
+        padding-bottom: 10em;
+    }
+    .top-movies-headline {
+        padding-bottom: 0.5em;
+    }
+}
+
+@media (min-width: 1324px) {
+    
+    .movies-container:last-child {
+        display: initial;
+    }
 }
