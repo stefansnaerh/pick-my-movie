@@ -12,7 +12,7 @@ const TOP_MOVIES = config.api_top_rated_movies
 async function getTopRatedMovies() {
 
     // Getting the top rated movies
-    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES}`);
+    let response = await fetch(`https://imdb-api.com/en/API/Top250Movies/k_tiy8x405`);
     let responseData = await response.json()
     console.log(responseData)
 
@@ -27,10 +27,10 @@ async function getTopRatedMovies() {
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
-    const poster = movie.poster_path
-    const movieTitle = movie.title
-    const yearOfRelease = movie.release_date.slice(-10, -6)
-    const rating = movie.vote_average
+    const poster = movie.items.image
+    const movieTitle = movie.items.title
+    const yearOfRelease = movie.items.year
+    const rating = movie.items.imDbRating
     
 
     const topMovieWrapper = document.createElement("div")
@@ -41,7 +41,7 @@ async function getTopRatedMovies() {
     topMoviePoster.classList.add("top-movies-poster")
     topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
     topMovieWrapper.appendChild(topMoviePoster)
-    topMoviePoster.src = `${IMAGE_URL}${poster}`
+    topMoviePoster.src = `${poster}`
 
     const starWrapper = document.createElement("span")
     starWrapper.classList.add("top-movies-star-wrapper")

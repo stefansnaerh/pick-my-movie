@@ -40,7 +40,7 @@ header {
     margin-top: -20px;
     background-color: $background-color;
     border-bottom: 2px solid #474747;
-    grid-area: head;
+    grid-area: header;
 }
 
 .logo-wrapper {
@@ -212,7 +212,10 @@ a:hover
     color: $font-color;
     list-style: none;
     display: inline;
-    margin-right: 1.2rem;
+    margin-right: 1.5rem;
+}
+#menu-desktop a:hover {
+    font-weight: bolder;
 }
 
 /*
@@ -225,23 +228,8 @@ a:hover
   }
 }
 */
-@media (min-width: 900px){
-    #menuToggle {
-        display: none;
-    }
-    #menu-desktop {
-        display: initial;
-        display: block;
-        position: absolute;
-        top: 25px;
-        right: 18px;
-        
-        z-index: 1;
-        
-        -webkit-user-select: none;
-        user-select: none;
-    }
-}
+
+
 /*----------------- CSS for main --------------------*/
 
 body {
@@ -472,7 +460,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 10px;
+    gap: 1rem;
 }
 .movies-container {
     display: flex;
@@ -569,4 +557,73 @@ footer h1 {
     font-size: $main-font-size;
     color: $font-color;
     font-weight: $main-font-weight;
+}
+
+@media (min-width: 544px) {
+.movies-container:last-child {
+    display: none;
+}
+}
+@media (min-width: 730px) {
+    .top-movies-poster {
+        height: 170px;
+        width: 190px;
+    }
+    .movie-container {
+        gap: 2rem;
+    }
+    }
+
+@media (min-width: 906px){
+    #menuToggle {
+        display: none;
+    }
+    #menu-desktop {
+        display: initial;
+        display: block;
+        position: absolute;
+        top: 25px;
+        right: 18px;
+        
+        z-index: 1;
+        
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    
+    .main-wrapper {
+            display: grid;
+            grid-template-rows: 250px 250px 250px 250px ;
+            grid-template-areas: 
+            "header header header header"
+            "sidebar sidebar topMovies topMovies"
+            "sidebar sidebar topMovies topMovies"
+            "sidebar sidebar topMovies topMovies"
+            ;
+            margin-top: -7rem;
+        }
+        #random-movie-card {
+            margin-left: 2rem;
+        }
+
+        .movies-container:last-child {
+            display: none;
+        }
+        header {
+            margin-top: 0.1rem;
+        }
+        body {
+            display: grid;
+            margin: 0;
+            padding: 0;
+        }
+        .top-movies-poster {
+            height: 160px;
+            width: 160px;
+        }
+        .movie-container {
+            gap: 1rem;
+        }
+        
+
 }
