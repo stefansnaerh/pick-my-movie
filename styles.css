@@ -165,7 +165,7 @@ a:hover {
   color: #e6e6e6;
   list-style: none;
   display: inline;
-  margin-right: 1.5rem;
+  margin-right: 1.5em;
 }
 
 #menu-desktop a:hover {
@@ -194,27 +194,6 @@ body {
   align-items: center;
 }
 
-/*
-@media (min-width: 1064px) {
-    .main-wrapper {
-        display: grid;
-        grid-template-rows: 250px 250px 250px 250px ;
-        grid-template-areas: 
-        "head head head head"
-        "sidebar sidebar topMovies topMovies "
-        "sidebar sidebar topMovies topMovies "
-        "sidebar sidebar topMovies topMovies"
-        "sidebar sidebar topMovies topMovies"
-        ;
-        margin-top: -7rem;
-    }
-    #random-movie-card {
-        margin-left: 2rem;
-    }
-
-}
-
-*/
 #random-movie-card {
   margin-top: 5rem;
   display: flex;
@@ -531,7 +510,7 @@ footer h1 {
     display: initial;
     display: block;
     position: absolute;
-    top: 25px;
+    top: 1.3em;
     right: 18px;
     z-index: 1;
     -webkit-user-select: none;
@@ -582,9 +561,42 @@ footer h1 {
   .top-movies-headline {
     padding-bottom: 0.5em;
   }
+  .top-movies-star-wrapper {
+    margin-top: 10em;
+    margin-right: 0.5em;
+  }
+  .top-movies-title {
+    font-size: 16px;
+  }
+  .top-movies-release {
+    font-size: 14px;
+  }
+  .view-all-button {
+    font-size: 16px;
+  }
+  #menu-desktop li {
+    margin-right: 2em;
+    font-size: 18px;
+  }
 }
 @media (min-width: 1324px) {
   .movies-container:last-child {
-    display: initial;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    height: 90px;
+  }
+  #menu-desktop {
+    top: 1.9em;
+  }
+  #menu-desktop li {
+    margin-right: 2.5em;
+  }
+}
+@media (min-width: 1646px) {
+  #random-movie-card {
+    width: 380px;
+    height: 530px;
   }
 }/*# sourceMappingURL=styles.css.map */
