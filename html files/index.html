@@ -16,14 +16,17 @@
        
         <nav role='navigation'>
             <div>
-                <ul id="menu-desktop">
+                <ul id="menu-desktop" aria-label="desktop navigation bar">
+                    <div class="blob-container">
                     <a href="#"><li>Movies</li></a>
-                    <a href="#"><li>TV shows</li></a>
+                    <img src="../images/orangeblob.png" class="orange-blob" alt="">
+                    </div>
+                    <a href="../html files/tvshows.html"><li>TV shows</li></a>
                     <a href="#"><li>About</li></a>
                     <a href="#"><li>Contact</li></a>   
                     </ul>
             </div>
-            <div id="menuToggle">
+            <div id="menuToggle" aria-label="click to view navigation bar">
               <input type="checkbox" />
               <span></span>
               <span></span>
@@ -54,14 +57,14 @@
                         <p id="release-date"></p>
                         <span class="star-rating-container">
                         <img src="../images/Star.png" class="star"></img>
-                        <p id="movie-rating"></p>
+                        <p id="movie-rating" aria-label="movie rating"></p>
                         </span>  
                     </div>
-                    <img src="" id="movie-poster"></img>
+                    <img src="" id="movie-poster" aria-label="movie poster"></img>
                     <h2 class="overview">Overview</h2>
                     <p id="overview-sub"></p>
-                    <button id="read-more"></button>
-                    <button id="read-less"></button>
+                    <button id="read-more" aria-label="read more"></button>
+                    <button id="read-less" aria-label="read less"></button>
                 </div>
             </div> 
         </div>
@@ -69,11 +72,17 @@
             <h2 class="top-movies-headline">Top rated movies by vote count</h2>
                 <div id="movie-container" class="movie-container">
                 </div>
-                <button class="view-all-button">View all</button>
+                <div class="view-all-container">
+                    <button class="view-all-button" aria-label="view all movies">View all</button>
+                    <img src="../images/chevron.png" alt="">
+                </div>
             <h2 class="top-movies-headline">Top rated movies by popularity</h2>
                 <div id="top-movies-2000-container" class="movie-container">
                 </div>
-                <button class="view-all-button">View all</button>
+                <div class="view-all-container">
+                    <button class="view-all-button" aria-label="view all movies">View all</button>
+                    <img src="../images/chevron.png" alt="">
+                </div>
             <h2 class="top-movies-headline"></h2>
         </section>
     </section>

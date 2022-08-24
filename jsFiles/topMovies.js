@@ -17,7 +17,7 @@ async function getTopRatedMovies() {
     console.log(responseData)
 
     // storing the results in an array
-    const movies = responseData.results
+    const movies = responseData.items
     // only using the first four movies using slice method
     const movie = movies
     const movieContainer = document.getElementById("movie-container")
@@ -27,10 +27,10 @@ async function getTopRatedMovies() {
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
-    const poster = movie.items.image
-    const movieTitle = movie.items.title
-    const yearOfRelease = movie.items.year
-    const rating = movie.items.imDbRating
+    const poster = movie.image
+    const movieTitle = movie.title
+    const yearOfRelease = movie.year
+    const rating = movie.imDbRating
     
 
     const topMovieWrapper = document.createElement("div")

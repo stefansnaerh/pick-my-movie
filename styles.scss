@@ -218,16 +218,22 @@ a:hover
     font-weight: bolder;
 }
 
-/*
-@media screen and (max-width: 768px) {
-  #menu {
-    transform: none;
-    opacity: 0;
-
-    transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  }
+.blob-container {
+    display: flex;
+    flex: column;
 }
-*/
+.orange-blob {
+    position: absolute;
+    width: 55px;
+    height: 7px;
+    margin-top: 1.5em;
+    }
+.orange-blob-tv {
+    position: absolute;
+    width: 75px;
+    height: 8px;
+    margin-top: 1.6em;
+    }
 
 
 /*----------------- CSS for main --------------------*/
@@ -241,6 +247,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.get-wild {
+    font-family: "poppins";
+    color: $font-color;
+    font-size: 18px;
+    font-weight: $main-font-weight;
+    position: fixed;
+    margin-bottom: 36em;
+    margin-left: 8em;
 }
 
 #random-movie-card {
@@ -518,10 +533,12 @@ body {
     border: none;
     padding: 0!important;
     font-family: $main-font;
-    color: $yellow;
+    color: $font-color;
     cursor: pointer;
+}
+.view-all-container {
+    display: flex;
     align-self: flex-end;
-    margin-right: 1.5rem;
 }
 
 footer {
@@ -542,6 +559,9 @@ footer h1 {
 .movies-container:last-child {
     display: none;
 }
+.top-movies-headline {
+    font-size: 18px;
+}
 }
 @media (min-width: 730px) {
     .top-movies-poster {
@@ -553,13 +573,13 @@ footer h1 {
     }
     }
 
-@media (min-width: 906px){
+@media (min-width: 980px){
     #menuToggle {
         display: none;
     }
     #menu-desktop {
         display: initial;
-        display: block;
+        display: flex;
         position: absolute;
         top: 1.3em;
         right: 18px;
@@ -607,6 +627,9 @@ footer h1 {
         .top-movies-headline {
             font-size: 18px;
         }
+        .view-all-container {
+            padding-right: 0.7em;
+        }
          
 }
 
@@ -632,13 +655,28 @@ footer h1 {
     .top-movies-release {
         font-size: 14px;
     }
-    .view-all-button {
-        font-size: 16px;
-    }
     #menu-desktop li {
         margin-right: 2em;
         font-size: 18px;
     }
+    #top-movies-container {
+        padding-top: 2.5em;
+    }
+    .view-all-container {
+        padding-right: 1em;
+    }
+    .orange-blob {
+        width: 62px;
+        height: 8px;
+        margin-top: 1.7em;
+    }
+    .orange-blob-tv {
+        position: absolute;
+        width: 83px;
+        height: 9px;
+        margin-top: 1.7em;
+        }
+    
 }
 
 @media (min-width: 1324px) {
@@ -662,5 +700,28 @@ footer h1 {
     #random-movie-card {
         width: 380px;
         height: 530px;
+    }
+    .view-all-container {
+        padding-right: 1.8em;
+    }
+    .main-wrapper {
+        padding-top: 2em;
+    }
+    #menu-desktop li {
+        margin-right: 3em
+    }
+}
+
+@media (min-width: 1830px) {
+    .top-movies-poster {
+        width: 15em;
+        height: 13em;
+    }
+
+    #top-movies-container {
+        padding-top: 5em;
+    }
+    .top-movies-star-wrapper {
+        margin-top: 11em;
     }
 }

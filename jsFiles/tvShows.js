@@ -231,4 +231,3 @@ async function getTopRatedMovies2000() {
 }
 
 getTopRatedMovies2000()
-
