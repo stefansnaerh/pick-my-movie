@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-wrapper">
+            <h1 class="logo">pmm</h1>
+            <h2 class="logo-smaller">Pick my movie</h2>
+        </div>
+   
+    <nav role='navigation'>
+        <div>
+            <ul id="menu-desktop" aria-label="desktop navigation bar">
+                <a href="../html files/index.html"><li>Movies</li></a>
+                <a href="../html files/tvshows.html"><li>TV shows</li></a>
+                <a href="#"><li>About</li></a>
+                <div class="blob-container">
+                <a href="#"><li>Contact</li></a> 
+                <img src="../images/orangeblob.png" class="orange-blob-contact" alt="">  
+                </div>
+                </ul>
+        </div>
+        <div id="menuToggle" aria-label="click to view navigation bar">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu-mobile">
+            <a href="#"><li>Home</li></a>
+            <a href="../html files/index.html"><li>Movies</li></a>
+            <a href="../html files/tvshows.html"><li>TV shows</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Contact</li></a>   
+            </ul>
+        </div>
+      </nav>   
+</header>
+
+<section id="contact">
+    <div class="contact-wrapper">
+    <h1 class="contact-headline">Contact us</h1>
+    <h2 class="contact-sub-headline">Fill the form for inquiries or tips to better the website</h2>
+    <form action="" id="contact-form">
+        <label for="name"></label>
+        <input type="text" name="name" id="input-smaller">
+        <label for="email"></label>
+        <input type="text" name="email" id="input-smaller">
+        <label for="text"></label>
+        <input type="text" name="text" id="input-bigger">
+        <button type="submit" class="contact-submit">Submit</button>
+    </form> 
+    </div>
+</section>
+    
+</body>
+</html>

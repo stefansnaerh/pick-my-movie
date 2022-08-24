@@ -93,12 +93,12 @@ document.getElementById("random-movie-button").addEventListener("click", getMovi
 async function getTopRatedMovies() {
 
     // Getting the top rated movies
-    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES}`);
+    let response = await fetch(`https://imdb-api.com/en/API/Top250TVs/k_tiy8x405`);
     let responseData = await response.json()
     console.log(responseData)
 
     // storing the results in an array
-    const movies = responseData.results
+    const movies = responseData.items
     // only using the first four movies using slice method
 
    let movie = movies.slice(0, 4)
@@ -110,10 +110,10 @@ async function getTopRatedMovies() {
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
-    const poster = movie.poster_path
-    const movieTitle = movie.title
-    const yearOfRelease = movie.release_date.slice(-10, -6)
-    const rating = movie.vote_average
+        const poster = movie.image
+        const movieTitle = movie.title
+        const yearOfRelease = movie.year
+        const rating = movie.imDbRating
     
 
     const topMovieWrapper = document.createElement("div")
@@ -124,7 +124,7 @@ async function getTopRatedMovies() {
     topMoviePoster.classList.add("top-movies-poster")
     topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
     topMovieWrapper.appendChild(topMoviePoster)
-    topMoviePoster.src = `${IMAGE_URL}${poster}`
+    topMoviePoster.src = `${poster}`
 
     const starWrapper = document.createElement("span")
     starWrapper.classList.add("top-movies-star-wrapper")
@@ -170,21 +170,22 @@ getTopRatedMovies()
 
 async function getTopRatedMovies2000() {
 
-    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES_2000}`);
+    let response = await fetch(`https://imdb-api.com/en/API/MostPopularTVs/k_tiy8x405`);
     let responseData = await response.json()
     console.log(responseData)
 
-    const movies = responseData.results
-    const movie = movies.slice(0, 4)
+    const movies = responseData.items
+
+    let movie = movies.slice(0, 4)
 
     const movieContainer = document.getElementById("top-movies-2000-container")
 
     movie.forEach((movie) => {
 
-        const poster = movie.poster_path
+        const poster = movie.image
         const movieTitle = movie.title
-        const yearOfRelease = movie.release_date.slice(-10, -6)
-        const rating = movie.vote_average
+        const yearOfRelease = movie.year
+        const rating = movie.imDbRating
 
         const topMovieWrapper = document.createElement("div")
         topMovieWrapper.classList.add("movies-container")
@@ -194,7 +195,7 @@ async function getTopRatedMovies2000() {
         topMoviePoster.classList.add("top-movies-poster")
         topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
         topMovieWrapper.appendChild(topMoviePoster)
-        topMoviePoster.src = `${IMAGE_URL}${poster}`
+        topMoviePoster.src = `${poster}`
 
         const starWrapper = document.createElement("span")
         starWrapper.classList.add("top-movies-star-wrapper")

@@ -235,6 +235,13 @@ a:hover
     margin-top: 1.6em;
     }
 
+.orange-blob-contact {
+    position: absolute;
+    width: 67px;
+    height: 8px;
+    margin-top: 1.6em;
+    }
+
 
 /*----------------- CSS for main --------------------*/
 
@@ -248,15 +255,7 @@ body {
     flex-direction: column;
     align-items: center;
 }
-.get-wild {
-    font-family: "poppins";
-    color: $font-color;
-    font-size: 18px;
-    font-weight: $main-font-weight;
-    position: fixed;
-    margin-bottom: 36em;
-    margin-left: 8em;
-}
+
 
 #random-movie-card {
     margin-top: 5rem;
@@ -513,21 +512,6 @@ body {
     font-weight: $main-font-weight;
 }
 
-/*
-.view-all-button {
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    font-family: $main-font;
-    color: $yellow;
-    cursor: pointer;
-    margin-left: auto;
-    align-self: flex-end;
-    justify-self: flex-end;
-    position: relative;
-}
-
-*/
 .view-all-button {
     background: none!important;
     border: none;
@@ -555,6 +539,64 @@ footer h1 {
     font-weight: $main-font-weight;
 }
 
+/* ---------------------------- CSS for contact page ------------------------------*/
+
+#contact {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+.contact-wrapper {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 80vw;
+}
+.contact-headline {
+    font-family: "poppins";
+    color: $font-color;
+    font-weight: $main-font-weight;
+}
+.contact-sub-headline {
+    font-family: "poppins";
+    color: $font-color;
+    font-size: 18px;
+    font-weight: $main-font-weight;
+    text-align: center;
+}
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 80vw;
+}
+#input-smaller {
+    border-radius: 10px;
+    height: 2.5em;
+    border: none;
+}
+#input-bigger {
+    border: none;
+    height: 5em;
+    border-radius: 10px;
+}
+.contact-submit {
+    margin-top: 20px;
+    width: 240px;
+    height: 40px;
+    color: $font-color;
+    font-family: montserrat, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: #DB5B24;
+    border-radius: 5px;
+    border: none;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+/* -------------------------------- Media queries -----------------------------------------*/
 @media (min-width: 544px) {
 .movies-container:last-child {
     display: none;
@@ -610,7 +652,7 @@ footer h1 {
             display: none;
         }
         header {
-            margin-top: 0.1rem;
+            margin-top: -0.1rem;
         }
         body {
             display: grid;
@@ -676,7 +718,14 @@ footer h1 {
         height: 9px;
         margin-top: 1.7em;
         }
-    
+    .orange-blob-contact {
+        position: absolute;
+        width: 74px;
+        height: 8px;
+        margin-top: 1.6em;
+        }
+        
+
 }
 
 @media (min-width: 1324px) {
