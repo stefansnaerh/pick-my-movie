@@ -7,7 +7,7 @@ const API_RANDOM_OVER_7 = config.api_over_7
 const IMAGE_URL = config.image_base_url
 const TOP_MOVIES = config.api_top_rated_movies
 const TOP_MOVIES_2000 = config.api_top_rated_popularity
-
+const TRAILER = config.trailer_base_url
 
 
 
@@ -107,6 +107,8 @@ async function getTopRatedMovies() {
 
     console.log(movie)
 
+
+
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
@@ -114,7 +116,7 @@ async function getTopRatedMovies() {
     const movieTitle = movie.title
     const yearOfRelease = movie.release_date.slice(-10, -6)
     const rating = movie.vote_average
-    
+    const id = movie.id
 
     const topMovieWrapper = document.createElement("div")
     topMovieWrapper.classList.add("movies-container")
@@ -150,19 +152,46 @@ async function getTopRatedMovies() {
     topMovieWrapper.appendChild(topMovieRelease)
     topMovieRelease.innerHTML= `${yearOfRelease}`
 
+// function to get trailers. Need to make a new API call with the ID of each movie to get trailer information
+   async function trailers() { 
+    let response= await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
+    let responseTrailerData = await response.json()
 
+    console.log(responseTrailerData)
+
+    const movieTrailer = responseTrailerData.results[0].key
+    console.log(movieTrailer)
+
+
+    const trailer = document.createElement("a")
+    trailer.classList.add("trailerButton")
+    topMovieWrapper.appendChild(trailer)
+    trailer.innerHTML = "Watch trailer"
+    trailer.href = `${TRAILER}${movieTrailer}`
+
+    const youtubeIcon = document.createElement("img")
+    youtubeIcon.classList.add("youtube-icon")
+    trailer.appendChild(youtubeIcon)
+    youtubeIcon.src = "../images/youtube12px.svg"
+
+   }
+   trailers()
+
+/*
+    movieTrailers.forEach ((movieTrailers) => {
+
+        const trailer = document.createElement("a")
+        topMovieWrapper.appendChild(trailer)
+    })
+
+   
+*/
     
 
 
 
 })
-/*
-const viewAllButton = document.createElement("button")
-movieContainer.appendChild(viewAllButton)
-viewAllButton.classList.add("view-all-button")
-viewAllButton.innerHTML = "View all"
 
-*/
 }
 
 getTopRatedMovies()
@@ -185,6 +214,7 @@ async function getTopRatedMovies2000() {
         const movieTitle = movie.title
         const yearOfRelease = movie.release_date.slice(-10, -6)
         const rating = movie.vote_average
+        const id = movie.id
 
         const topMovieWrapper = document.createElement("div")
         topMovieWrapper.classList.add("movies-container")
@@ -221,7 +251,29 @@ async function getTopRatedMovies2000() {
         topMovieRelease.innerHTML= `${yearOfRelease}`
 
         
-
+        async function trailers() { 
+            let response= await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
+            let responseTrailerData = await response.json()
+        
+            console.log(responseTrailerData)
+        
+            const movieTrailer = responseTrailerData.results[0].key
+            console.log(movieTrailer)
+        
+        
+            const trailer = document.createElement("a")
+            trailer.classList.add("trailerButton")
+            topMovieWrapper.appendChild(trailer)
+            trailer.innerHTML = "Watch trailer"
+            trailer.href = `${TRAILER}${movieTrailer}`
+        
+            const youtubeIcon = document.createElement("img")
+            youtubeIcon.classList.add("youtube-icon")
+            trailer.appendChild(youtubeIcon)
+            youtubeIcon.src = "../images/youtube12px.svg"
+        
+           }
+           trailers()
 
     })
     
