@@ -337,9 +337,9 @@ body {
 
     //  ------ CSS for random movies -----------//
 
-    #random-movie-container {
-        display: none;
-        background-color: #404040;
+ #random-movie-container {
+    display: none;
+    background-color: #404040;
     }
 
 #movie-poster {
@@ -399,6 +399,11 @@ body {
     font-weight: $main-font-weight;
     font-size: 18px; 
     margin-bottom: 5px;
+}
+.overview-trailer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #overview-sub {
@@ -627,6 +632,18 @@ footer h1 {
 }
 .top-movies-headline {
     font-size: 18px;
+}
+#contact-form {
+    width: 24.5em;
+}
+#input-bigger {
+    height: 14em;
+}
+#input-smaller {
+    height: 3em;
+}
+.contact-submit {
+    width: 21.8em;
 }
 }
 @media (min-width: 730px) {

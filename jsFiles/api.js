@@ -48,6 +48,17 @@ async function getMovie() {
     let movieOverview = movie.overview
     const overviewP = document.getElementById("overview-sub")
     overviewP.innerHTML = movieOverview
+    const movieId = movie.id
+
+    async function trailers() { 
+        let response= await fetch(`${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`);
+        let responseTrailerData = await response.json()
+        
+        const movieTrailer = responseTrailerData.results[0].key
+
+        document.getElementById("random-movie-trailer").href = `${TRAILER}${movieTrailer}`
+    }
+    trailers()    
 
     // If the overview text is longer then 120 letters, add a read more button
    // if (movieOverview.length > 120 ) {

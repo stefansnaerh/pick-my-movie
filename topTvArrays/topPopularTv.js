@@ -1,4 +1,4 @@
-const top100tv = [
+const top100PopularTv = [
     {
         "id": "tt3032476",
         "rank": "1",
@@ -1201,4 +1201,4 @@ const top100tv = [
     }
 ]
 
-export default top100tv
+export default top100PopularTv
