@@ -255,7 +255,12 @@ body {
     flex-direction: column;
     align-items: center;
 }
-
+.main-wrapper-all {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 #random-movie-card {
     margin-top: 5rem;
@@ -404,6 +409,8 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-bottom: 0.3em;
+    padding-top: 0.5em;
 }
 
 #overview-sub {
@@ -441,6 +448,14 @@ body {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+#top-movies-container-all {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
 
 .top-movies-headline {
     font-family: $main-font;
@@ -452,6 +467,17 @@ body {
     margin-top: 3em;
     align-self: center;
 }
+.top-movies-all-headline {
+    font-family: $main-font;
+    color: $font-color;
+    font-size: $main-font-size;
+    font-weight: $main-font-weight;
+    margin-bottom: 1.5em;
+    margin-left: 1vw;
+    margin-top: 3em;
+    align-self: center;
+}
+
 
 .movie-container {
     display: flex;
@@ -469,9 +495,9 @@ body {
 }
 
 .top-movies-poster {
-    height: 10rem;
+   // height: 10rem;
     width: 10rem;
-    border-radius: 20px;
+    border-radius: 5px;
     position: relative;
 }
 
@@ -490,11 +516,11 @@ body {
     align-self: flex-end;
     justify-content: center;
     background-color: #000000;
-    border-radius: 20px;
+    border-radius: 5px;
     width: 50px;
     height: 26px;
-    margin-top: 130px;
-    margin-right: 8px;
+   /* margin-top: 130px;
+    margin-right: 8px;*/
 }
 
 .star {
@@ -543,6 +569,18 @@ body {
     color: $font-color;
     cursor: pointer;
 }
+.load-more-button {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: $main-font;
+    color: $font-color;
+    cursor: pointer;
+    align-self: center;
+    justify-self: center;
+    font-size: 16px;
+    margin-top: 2em;
+}
 .view-all-container {
     display: flex;
     align-self: flex-end;
@@ -553,6 +591,7 @@ footer {
     justify-content: center;
     align-content: center;
     height: 50px;
+    margin-top: 5em;
 }
 
 footer h1 {
@@ -648,7 +687,7 @@ footer h1 {
 }
 @media (min-width: 730px) {
     .top-movies-poster {
-        height: 170px;
+       // height: 170px;
         width: 190px;
     }
     .movie-container {
@@ -686,7 +725,9 @@ footer h1 {
         }
         #random-movie-card {
            justify-self: center;
-           padding-bottom: 5.8rem;
+           margin-top: 0;
+           padding-bottom: 4.5em;
+           
         }
 
         .movies-container:last-child {
@@ -701,7 +742,7 @@ footer h1 {
             padding: 0;
         }
         .top-movies-poster {
-            height: 160px;
+            //height: 160px;
             width: 160px;
         }
         .movie-container {
@@ -713,17 +754,25 @@ footer h1 {
         .view-all-container {
             padding-right: 0.7em;
         }
-         
+        #top-movies-container-all {
+            margin-top: 4em;
+            margin-left: 2em;
+            margin-right: 2em;
+        }
+        .top-movies-all-headline {
+            font-size: 18px;
+            margin-bottom: 2em;
+        }
 }
 
 
 @media (min-width: 1120px) {
     .top-movies-poster {
         width: 13em;
-        height: 12em;
+        //height: 12em;
     }
     #random-movie-card {
-        padding-bottom: 10em;
+        padding-top: 1em;
     }
     .top-movies-headline {
         padding-bottom: 0.5em;
@@ -743,7 +792,7 @@ footer h1 {
         font-size: 18px;
     }
     #top-movies-container {
-        padding-top: 2.5em;
+        padding-top: 7em;
     }
     .view-all-container {
         padding-right: 1em;
@@ -784,6 +833,13 @@ footer h1 {
     #menu-desktop li {
         margin-right: 2.5em;
     }
+    #top-movies-container {
+        padding-top: 11em;
+    }
+    #random-movie-card {
+        margin-top: 4.5em;
+        padding-top: 2em;
+    }
 }
 
 @media (min-width: 1646px) {
@@ -800,12 +856,21 @@ footer h1 {
     #menu-desktop li {
         margin-right: 3em
     }
+    #top-movies-container-all {
+        margin-top: 4em;
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+    .top-movies-all-headline {
+        font-size: 20px;
+        margin-bottom: 2em;
+    }
 }
 
 @media (min-width: 1830px) {
     .top-movies-poster {
         width: 15em;
-        height: 13em;
+       // height: 13em;
     }
 
     #top-movies-container {
@@ -814,4 +879,33 @@ footer h1 {
     .top-movies-star-wrapper {
         margin-top: 11em;
     }
+    #random-movie-card {
+        width: 400px;
+        height: 600px;
+    }
+    .movie-card-headline {
+        font-size: 18px;
+    }
+    #top-movies-container {
+        padding-top: 9em;
+    }
+    .top-movies-all-headline {
+        font-size: 22px;
+        margin-bottom: 2em;
+    }
 }
+/*
+#random-movie-card {
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 310px;
+    height: 530px;
+    overflow: auto;
+    background-color: #404040;
+    border-radius: 20px;
+    padding: 30px 10px 0px 10px;
+    grid-area: sidebar;
+}
+*/

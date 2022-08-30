@@ -164,7 +164,7 @@ async function getTopRatedMovies() {
     topMovieRelease.innerHTML= `${yearOfRelease}`
 
 // function to get trailers. Need to make a new API call with the ID of each movie to get trailer information
-   async function trailers() { 
+    async function trailers() { 
     let response= await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
     let responseTrailerData = await response.json()
 

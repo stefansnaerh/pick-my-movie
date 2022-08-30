@@ -10,15 +10,46 @@
 <body>
     <header>
         <div class="logo-wrapper">
-            <h1 class="logo" id="logo">pmm</h1>
-            <h2 class="logo-smaller" id="logo-smaller">Pick my movie</h2>
+            <h1 class="logo">pmm</h1>
+            <h2 class="logo-smaller">Pick my movie</h2>
         </div>
-    </header>
-    <section id="top-movies-container">
-        <h2 class="top-movies-headline">Top rated movies by vote count</h2>
+    <nav role='navigation'>
+        <div>
+            <ul id="menu-desktop" aria-label="desktop navigation bar">
+                <div class="blob-container">
+                <a href="#"><li>Movies</li></a>
+                <img src="../images/orangeblob.png" class="orange-blob" alt="">
+                </div>
+                <a href="../html files/tvshows.html"><li>TV shows</li></a>
+                <a href="#"><li>About</li></a>
+                <a href="../html files/contact.html"><li>Contact</li></a>   
+                </ul>
+        </div>
+        <div id="menuToggle" aria-label="click to view navigation bar">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu-mobile">
+            <a href="../html files/index.html"><li>Movies</li></a>
+            <a href="../html files/tvshows.html"><li>TV shows</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="../html files/contact.html"><li>Contact</li></a>   
+            </ul>
+        </div>
+      </nav>
+</header>
+<section class="main-wrapper-all">
+    <section id="top-movies-container-all">
+        <h2 class="top-movies-all-headline">Top rated movies by vote count</h2>
             <div id="movie-container" class="movie-container">
             </div>
+            <button id="load-more-button" class="load-more-button">Load more</button>
     </section>
-    <script type='module'src="../jsFiles/topMovies.js"></script>
+</section>
+<footer>
+    <h1>Made by Stefan Snær</h1>
+</footer>
+    <script type='module'src="../jsFiles/topRatedMovies.js"></script>
 </body>
 </html>

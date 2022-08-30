@@ -1,36 +1,43 @@
 
 import {config} from "./config.js"
 
+
+// storing page in a variable so I can load more pages on click
+let page = 1;
 const BASE_URL = config.api_base_url
 const API_KEY = config.api_key
 const IMAGE_URL = config.image_base_url
-const TOP_MOVIES = config.api_top_rated_movies
+const TRAILER = config.trailer_base_url
 
 
 
 
-async function getTopRatedMovies() {
+
+async function getTopRatedMovies(page = 1) {
 
     // Getting the top rated movies
-    let response = await fetch(`https://imdb-api.com/en/API/Top250Movies/k_tiy8x405`);
+    // I had to use almost the full url in the api call since the page counter is in the middle of it
+    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=${page}&vote_count.gte=500&with_watch_monetization_types=flatrate`);
     let responseData = await response.json()
-    console.log(responseData)
+
 
     // storing the results in an array
-    const movies = responseData.items
+    const movies = responseData.results
     // only using the first four movies using slice method
     const movie = movies
     const movieContainer = document.getElementById("movie-container")
+    const movieContainerAll = document.getElementById("top-movies-container-all")
 
     console.log(movie)
 
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
-    const poster = movie.image
+    const poster = movie.poster_path
     const movieTitle = movie.title
-    const yearOfRelease = movie.year
-    const rating = movie.imDbRating
+    const yearOfRelease = movie.release_date.slice(-10, -6)
+    const rating = movie.vote_average
+    const id = movie.id
     
 
     const topMovieWrapper = document.createElement("div")
@@ -41,7 +48,7 @@ async function getTopRatedMovies() {
     topMoviePoster.classList.add("top-movies-poster")
     topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
     topMovieWrapper.appendChild(topMoviePoster)
-    topMoviePoster.src = `${poster}`
+    topMoviePoster.src = `${IMAGE_URL}${poster}`
 
     const starWrapper = document.createElement("span")
     starWrapper.classList.add("top-movies-star-wrapper")
@@ -67,14 +74,40 @@ async function getTopRatedMovies() {
     topMovieWrapper.appendChild(topMovieRelease)
     topMovieRelease.innerHTML= `${yearOfRelease}`
 
+    async function trailers() { 
+        let response= await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
+        let responseTrailerData = await response.json()
+    
+        console.log(responseTrailerData)
+    
+        const movieTrailer = responseTrailerData.results[0].key
+        console.log(movieTrailer)
+    
+    
+        const trailer = document.createElement("a")
+        trailer.classList.add("trailerButton")
+        topMovieWrapper.appendChild(trailer)
+        trailer.innerHTML = "Watch trailer"
+        trailer.href = `${TRAILER}${movieTrailer}`
+    
+        const youtubeIcon = document.createElement("img")
+        youtubeIcon.classList.add("youtube-icon")
+        trailer.appendChild(youtubeIcon)
+        youtubeIcon.src = "../images/youtube12px.svg"
+    
+       }
+       trailers()
+
 })
-
-const viewAllButton = document.createElement("button")
-movieContainer.appendChild(viewAllButton)
-viewAllButton.classList.add("view-all-button")
-viewAllButton.innerHTML = "Load more"
-
 
 }
 
 getTopRatedMovies()
+
+
+// function that loads the next page from the API
+document.getElementById("load-more-button").addEventListener("click", function(){
+    page = page + 1 
+    getTopRatedMovies(page)
+})
+
