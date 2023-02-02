@@ -179,7 +179,7 @@ async function getTopRatedMovies() {
         const youtubeIcon = document.createElement("img")
         youtubeIcon.classList.add("youtube-icon")
         trailer.appendChild(youtubeIcon)
-        youtubeIcon.src = "../images/youtube12px.svg"
+        youtubeIcon.src = "./images/youtube12px.svg"
         youtubeIcon.alt = "youtube icon"
 
     
@@ -271,7 +271,7 @@ async function getTopRatedMovies2000() {
             const youtubeIcon = document.createElement("img")
             youtubeIcon.classList.add("youtube-icon")
             trailer.appendChild(youtubeIcon)
-            youtubeIcon.src = "../images/youtube12px.svg"
+            youtubeIcon.src = "./images/youtube12px.svg"
             youtubeIcon.alt = "youtube icon"
         
            }
