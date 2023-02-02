@@ -705,7 +705,7 @@ footer h1 {
         position: absolute;
         top: 1.3em;
         right: 18px;
-    
+        
         z-index: 1;
         
         -webkit-user-select: none;
@@ -721,13 +721,14 @@ footer h1 {
             "sidebar sidebar topMovies topMovies topMovies"
             "sidebar sidebar topMovies topMovies topMovies"
             ;
-            margin-top: -7rem;
+            
         }
         #random-movie-card {
            justify-self: center;
-           margin-top: 0;
-           padding-bottom: 4.5em;
-           
+           margin-bottom: 14em;
+           width: 310px;
+           height: 630px;
+
         }
 
         .movies-container:last-child {
@@ -768,18 +769,11 @@ footer h1 {
 
 @media (min-width: 1120px) {
     .top-movies-poster {
-        width: 13em;
-        //height: 12em;
+        width: 12em;
     }
-    #random-movie-card {
-        padding-top: 1em;
-    }
+    
     .top-movies-headline {
         padding-bottom: 0.5em;
-    }
-    .top-movies-star-wrapper {
-        margin-top: 10em;
-        margin-right: 0.5em;
     }
     .top-movies-title {
         font-size: 16px;
@@ -807,13 +801,23 @@ footer h1 {
         width: 83px;
         height: 8px;
         margin-top: 1.7em;
-        }
+    }
     .orange-blob-contact {
         position: absolute;
         width: 74px;
         height: 8px;
         margin-top: 1.7em;
-        }
+    }
+    #random-movie-card {
+        margin-bottom: 14.5em;
+        width: 330px;
+    }
+    .trailerButton {
+        width: 130px;
+        height: 30px;
+        font-size: 14px;
+        font-weight: 500;
+    }
         
 
 }
@@ -834,7 +838,7 @@ footer h1 {
         margin-right: 2.5em;
     }
     #top-movies-container {
-        padding-top: 11em;
+        padding-top: 7.55em;
     }
     #random-movie-card {
         margin-top: 4.5em;
@@ -845,7 +849,6 @@ footer h1 {
 @media (min-width: 1646px) {
     #random-movie-card {
         width: 380px;
-        height: 530px;
     }
     .view-all-container {
         padding-right: 1.8em;
@@ -874,20 +877,18 @@ footer h1 {
     }
 
     #top-movies-container {
-        padding-top: 5em;
+        padding-top: 20em;
     }
-    .top-movies-star-wrapper {
-        margin-top: 11em;
-    }
+
     #random-movie-card {
-        width: 400px;
-        height: 600px;
+        width: 420px;
+        height: 700px;
     }
     .movie-card-headline {
         font-size: 18px;
     }
     #top-movies-container {
-        padding-top: 9em;
+        padding-top: 12em;
     }
     .top-movies-all-headline {
         font-size: 22px;

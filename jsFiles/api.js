@@ -6,16 +6,14 @@ const API_KEY = config.api_key
 const API_RANDOM_OVER_7 = config.api_over_7
 const IMAGE_URL = config.image_base_url
 const TOP_MOVIES = config.api_top_rated_movies
-const TOP_MOVIES_2000 = config.api_top_rated_popularity
+const TOP_MOVIES_POPULARITY = config.api_top_rated_popularity
 const TRAILER = config.trailer_base_url
 
 
 
 
 // getting a random page number since it always starts at page 1
-let PAGE_NUMBER = Math.floor(Math.random() * 500)
-console.log(PAGE_NUMBER)
-
+let PAGE_NUMBER = Math.floor(Math.random() * 108)
 
 
 // Function that gets a random movie with over 7 in ratings when button clicks. 
@@ -135,7 +133,8 @@ async function getTopRatedMovies() {
 
     const topMoviePoster = document.createElement("img")
     topMoviePoster.classList.add("top-movies-poster")
-    topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
+    topMoviePoster.ariaLabel = `${movieTitle} poster`
+    topMoviePoster.alt = `${movieTitle} poster`
     topMovieWrapper.appendChild(topMoviePoster)
     topMoviePoster.src = `${IMAGE_URL}${poster}`
 
@@ -146,6 +145,7 @@ async function getTopRatedMovies() {
     const star = document.createElement("img")
     star.classList.add("top-movies-star")
     star.src = `../images/Star.png`
+    star.alt = "star"
     starWrapper.appendChild(star)
 
     const voteAverage = document.createElement("p")
@@ -184,6 +184,7 @@ async function getTopRatedMovies() {
     youtubeIcon.classList.add("youtube-icon")
     trailer.appendChild(youtubeIcon)
     youtubeIcon.src = "../images/youtube12px.svg"
+    youtubeIcon.alt = "youtube icon"
 
    }
    trailers()
@@ -208,9 +209,9 @@ async function getTopRatedMovies() {
 getTopRatedMovies()
 
 
-async function getTopRatedMovies2000() {
+async function getTopMoviesPopularity() {
 
-    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES_2000}`);
+    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES_POPULARITY}`);
     let responseData = await response.json()
     console.log(responseData)
 
@@ -233,7 +234,8 @@ async function getTopRatedMovies2000() {
 
         const topMoviePoster = document.createElement("img")
         topMoviePoster.classList.add("top-movies-poster")
-        topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
+        topMoviePoster.ariaLabel = `${movieTitle} poster`
+        topMoviePoster.alt = `${movieTitle} poster`
         topMovieWrapper.appendChild(topMoviePoster)
         topMoviePoster.src = `${IMAGE_URL}${poster}`
 
@@ -244,6 +246,7 @@ async function getTopRatedMovies2000() {
         const star = document.createElement("img")
         star.classList.add("top-movies-star")
         star.src = `../images/Star.png`
+        star.alt = "star"
         starWrapper.appendChild(star)
 
         const voteAverage = document.createElement("p")
@@ -282,6 +285,7 @@ async function getTopRatedMovies2000() {
             youtubeIcon.classList.add("youtube-icon")
             trailer.appendChild(youtubeIcon)
             youtubeIcon.src = "../images/youtube12px.svg"
+            youtubeIcon.alt = "youtube icon"
         
            }
            trailers()
@@ -293,5 +297,5 @@ async function getTopRatedMovies2000() {
 
 }
 
-getTopRatedMovies2000()
+getTopMoviesPopularity()
 

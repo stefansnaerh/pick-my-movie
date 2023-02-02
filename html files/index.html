@@ -27,7 +27,8 @@
                     </ul>
             </div>
             <div id="menuToggle" aria-label="click to view navigation bar">
-              <input type="checkbox" />
+                <label for="hamburger"></label>
+              <input type="checkbox" name="hamburger"/>
               <span></span>
               <span></span>
               <span></span>
@@ -51,15 +52,17 @@
                 <h2 class="quality-sub-text" id="quality-sub-text">All titles have over 7 in ratings!</h2>
                 </div>
                 <div id="random-movie-container">
+                    <img src="" id="movie-poster" aria-label="movie poster" alt="movie poster"></img>
+                    <div class="title-date-star-container">
                     <h1 id="movie-title"></h1>
                     <div class="date-rating-container">
                         <p id="release-date"></p>
                         <span class="star-rating-container">
-                        <img src="../images/Star.png" class="star"></img>
+                        <img src="../images/Star.png" class="star" alt="star"></img>
                         <p id="movie-rating" aria-label="movie rating"></p>
                         </span>  
                     </div>
-                    <img src="" id="movie-poster" aria-label="movie poster"></img>
+                    </div>
                     <div class="overview-trailer-container">
                         <h2 class="overview">Overview</h2>
                         <a href="" class="trailerButton" id="random-movie-trailer" aria-label="link to youtube trailer">Watch trailer<img src="../images/youtube12px.svg" class="youtube-icon"></a>
@@ -75,15 +78,15 @@
                 <div id="movie-container" class="movie-container">
                 </div>
                 <div class="view-all-container">
-                    <a href="../html files/topMovies.html"><button class="view-all-button" aria-label="view all movies">View all</button></a>
-                    <img src="../images/chevron.png" alt="">
+                    <a href="../html files/topRatedMovies.html"><button class="view-all-button" aria-label="view all movies">View all</button></a>
+                    <img src="../images/chevron.png" alt="chevron">
                 </div>
             <h2 class="top-movies-headline">Top rated movies by popularity</h2>
                 <div id="top-movies-2000-container" class="movie-container">
                 </div>
                 <div class="view-all-container">
                    <a href="../html files/topPopularmovies.html"><button class="view-all-button" aria-label="view all movies">View all</button></a>
-                    <img src="../images/chevron.png" alt="">
+                    <img src="../images/chevron.png" alt="chevron">
                 </div>
             <h2 class="top-movies-headline"></h2>
         </section>

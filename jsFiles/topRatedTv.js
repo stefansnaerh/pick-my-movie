@@ -17,7 +17,7 @@ async function getTopRatedMovies(page = 1) {
 
     // Getting the top rated movies
     // I had to use almost the full url in the api call since the page counter is in the middle of it
-    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=${page}&vote_count.gte=500&with_watch_monetization_types=flatrate`);
+    let response = await fetch(`${BASE_URL}discover/tv?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&page=${page}&vote_count.gte=10&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0`);
     let responseData = await response.json()
 
 
@@ -33,9 +33,9 @@ async function getTopRatedMovies(page = 1) {
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
-    const poster = movie.poster_path
-    const movieTitle = movie.title
-    const yearOfRelease = movie.release_date.slice(-10, -6)
+    const poster = movie.backdrop_path
+    const movieTitle = movie.name
+    const yearOfRelease = movie.first_air_date.slice(-10, -6)
     const rating = movie.vote_average
     const id = movie.id
     
@@ -78,32 +78,6 @@ async function getTopRatedMovies(page = 1) {
     topMovieWrapper.appendChild(topMovieRelease)
     topMovieRelease.innerHTML= `${yearOfRelease}`
     topMovieRelease.ariaLabel = "movie release year"
-
-    async function trailers() { 
-        let response= await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
-        let responseTrailerData = await response.json()
-    
-        console.log(responseTrailerData)
-    
-        const movieTrailer = responseTrailerData.results[0].key
-        console.log(movieTrailer)
-    
-    
-        const trailer = document.createElement("a")
-        trailer.classList.add("trailerButton")
-        topMovieWrapper.appendChild(trailer)
-        trailer.innerHTML = "Watch trailer"
-        trailer.href = `${TRAILER}${movieTrailer}`
-        trailer.ariaLabel = "movie youtube trailer link"
-    
-        const youtubeIcon = document.createElement("img")
-        youtubeIcon.classList.add("youtube-icon")
-        trailer.appendChild(youtubeIcon)
-        youtubeIcon.src = "../images/youtube12px.svg"
-        youtubeIcon.alt = "youtube icon"
-    
-       }
-       trailers()
 
 })
 

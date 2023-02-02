@@ -17,7 +17,7 @@ async function getTopRatedMovies(page = 1) {
 
     // Getting the top rated movies
     // I had to use almost the full url in the api call since the page counter is in the middle of it
-    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=${page}&vote_count.gte=500&with_watch_monetization_types=flatrate`);
+    let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&${page}&vote_count.gte=500&with_watch_monetization_types=flatrate`);
     let responseData = await response.json()
 
 

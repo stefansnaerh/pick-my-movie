@@ -1,14 +1,16 @@
 import {config} from "./config.js"
-import top100PopularTv from "../topTvArrays/topPopularTv.js"
-import top250tv from "../topTvArrays/top250Tv.js"
+
 
 
 const BASE_URL = config.api_base_url
 const API_KEY = config.api_key
 const API_RANDOM_OVER_7 = config.api_over_7
 const IMAGE_URL = config.image_base_url
-const TOP_MOVIES = config.api_top_rated_movies
-const TOP_MOVIES_2000 = config.api_top_rated_popularity
+const TV_POPULARITY = config.api_top_tv_popularity
+const TV_RATING = config.api_top_tv_rating
+const TRAILER = config.trailer_base_url
+
+
 
 
 
@@ -95,15 +97,18 @@ document.getElementById("random-movie-button").addEventListener("click", getMovi
 async function getTopRatedMovies() {
 
     // Getting the top rated movies
-   /* let response = await fetch(`https://imdb-api.com/en/API/Top250TVs/k_tiy8x405`);
+    let response = await fetch(`${BASE_URL}discover/tv?api_key=${API_KEY}${TV_RATING}`);
     let responseData = await response.json()
-    console.log(responseData)*/
+    console.log(responseData)
+
+
+    const movies = responseData.results
+
+
 
     // storing the results in an array
-    const movies = top250tv
     // only using the first four movies using slice method
-
-   let movie = movies.slice(0, 4)
+    let movie = movies.slice(0, 4)
 
     const movieContainer = document.getElementById("movie-container")
 
@@ -112,10 +117,11 @@ async function getTopRatedMovies() {
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
-        const poster = movie.image
-        const movieTitle = movie.title
-        const yearOfRelease = movie.year
-        const rating = movie.imDbRating
+        const poster = movie.poster_path
+        const movieTitle = movie.name
+        const yearOfRelease = movie.first_air_date.slice(-10, -6)
+        const rating = movie.vote_average
+        const id = movie.id
     
 
     const topMovieWrapper = document.createElement("div")
@@ -126,7 +132,7 @@ async function getTopRatedMovies() {
     topMoviePoster.classList.add("top-movies-poster")
     topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
     topMovieWrapper.appendChild(topMoviePoster)
-    topMoviePoster.src = `${poster}`
+    topMoviePoster.src = `${IMAGE_URL}${poster}`
 
     const starWrapper = document.createElement("span")
     starWrapper.classList.add("top-movies-star-wrapper")
@@ -152,19 +158,38 @@ async function getTopRatedMovies() {
     topMovieWrapper.appendChild(topMovieRelease)
     topMovieRelease.innerHTML= `${yearOfRelease}`
 
+/*
+    
+    async function trailers() { 
+        let response= await fetch(`${BASE_URL}/tv/${id}/videos?api_key=${API_KEY}`);
+        let responseTrailerData = await response.json()
+    
+        console.log(responseTrailerData)
+    
+        const movieTrailer = responseTrailerData.results[0].key
+        console.log(movieTrailer)
+    
+    
+        const trailer = document.createElement("a")
+        trailer.classList.add("trailerButton")
+        topMovieWrapper.appendChild(trailer)
+        trailer.innerHTML = "Watch trailer"
+        trailer.href = `${TRAILER}${movieTrailer}`
+    
+        const youtubeIcon = document.createElement("img")
+        youtubeIcon.classList.add("youtube-icon")
+        trailer.appendChild(youtubeIcon)
+        youtubeIcon.src = "../images/youtube12px.svg"
+        youtubeIcon.alt = "youtube icon"
 
     
-
-
-
-})
-/*
-const viewAllButton = document.createElement("button")
-movieContainer.appendChild(viewAllButton)
-viewAllButton.classList.add("view-all-button")
-viewAllButton.innerHTML = "View all"
+       }
+       trailers()
 
 */
+
+})
+
 }
 
 getTopRatedMovies()
@@ -172,12 +197,12 @@ getTopRatedMovies()
 
 async function getTopRatedMovies2000() {
 
-    /*
-    let response = await fetch(`https://imdb-api.com/en/API/MostPopularTVs/k_tiy8x405`);
+    let response = await fetch(`${BASE_URL}discover/tv?api_key=${API_KEY}${TV_POPULARITY}`);
     let responseData = await response.json()
-    console.log(responseData) */
+    console.log(responseData)
 
-    const movies = top100PopularTv
+
+    const movies = responseData.results
 
     let movie = movies.slice(0, 4)
 
@@ -185,10 +210,13 @@ async function getTopRatedMovies2000() {
 
     movie.forEach((movie) => {
 
-        const poster = movie.image
-        const movieTitle = movie.title
-        const yearOfRelease = movie.year
-        const rating = movie.imDbRating
+        const poster = movie.poster_path
+        const movieTitle = movie.name
+        const yearOfRelease = movie.first_air_date.slice(-10, -6)
+        const rating = movie.vote_average
+        const id = movie.id
+
+   
 
         const topMovieWrapper = document.createElement("div")
         topMovieWrapper.classList.add("movies-container")
@@ -198,7 +226,7 @@ async function getTopRatedMovies2000() {
         topMoviePoster.classList.add("top-movies-poster")
         topMoviePoster.alt, topMoviePoster.ariaLabel = "movie-poster"
         topMovieWrapper.appendChild(topMoviePoster)
-        topMoviePoster.src = `${poster}`
+        topMoviePoster.src = `${IMAGE_URL}${poster}`
 
         const starWrapper = document.createElement("span")
         starWrapper.classList.add("top-movies-star-wrapper")
@@ -224,7 +252,32 @@ async function getTopRatedMovies2000() {
         topMovieWrapper.appendChild(topMovieRelease)
         topMovieRelease.innerHTML= `${yearOfRelease}`
 
+       /* async function trailers() { 
+            let response= await fetch(`${BASE_URL}/tv/${id}/videos?api_key=${API_KEY}`);
+            let responseTrailerData = await response.json()
         
+            console.log(responseTrailerData)
+        
+            const movieTrailer = responseTrailerData.results[0].key
+            console.log(movieTrailer)
+        
+        
+            const trailer = document.createElement("a")
+            trailer.classList.add("trailerButton")
+            topMovieWrapper.appendChild(trailer)
+            trailer.innerHTML = "Watch trailer"
+            trailer.href = `${TRAILER}${movieTrailer}`
+        
+            const youtubeIcon = document.createElement("img")
+            youtubeIcon.classList.add("youtube-icon")
+            trailer.appendChild(youtubeIcon)
+            youtubeIcon.src = "../images/youtube12px.svg"
+            youtubeIcon.alt = "youtube icon"
+        
+           }
+           trailers()
+
+        */
 
 
     })
