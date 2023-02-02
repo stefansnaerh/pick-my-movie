@@ -23,7 +23,7 @@ async function getMovie() {
     // Connecting to the API
     let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=${PAGE_NUMBER}&${API_RANDOM_OVER_7}`);
     let responseData = await response.json()
-    console.log(responseData)
+  
 
     // Manipulating the HTML - adding and removing elements when the function is activated
     document.getElementById("quality-text-container").style.display = "none"
@@ -144,7 +144,7 @@ async function getTopRatedMovies() {
 
     const star = document.createElement("img")
     star.classList.add("top-movies-star")
-    star.src = `../images/Star.png`
+    star.src = `./images/Star.png`
     star.alt = "star"
     starWrapper.appendChild(star)
 

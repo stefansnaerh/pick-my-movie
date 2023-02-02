@@ -1,6 +1,7 @@
 ## Pick my movie.
 
 PMM is a movie website where you can see top rated movies and shows both by popularity and vote count.
+For the movies you can click on the youtube link to see the trailer on youtube.
 
 You can also get a random movie if you have trouble picking a movie to watch.
 
