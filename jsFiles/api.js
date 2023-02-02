@@ -239,7 +239,7 @@ async function getTopMoviesPopularity() {
     
         const star = document.createElement("img")
         star.classList.add("top-movies-star")
-        star.src = `../images/Star.png`
+        star.src = `./images/Star.png`
         star.alt = "star"
         starWrapper.appendChild(star)
 
