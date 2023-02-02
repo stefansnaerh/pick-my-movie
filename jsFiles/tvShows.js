@@ -18,8 +18,6 @@ const TRAILER = config.trailer_base_url
 
 // getting a random page number since it always starts at page 1
 let PAGE_NUMBER = Math.floor(Math.random() * 500)
-console.log(PAGE_NUMBER)
-
 
 
 // Function that gets a random movie with over 7 in ratings when button clicks. 
@@ -29,7 +27,6 @@ async function getMovie() {
     // Connecting to the API
     let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=${PAGE_NUMBER}&${API_RANDOM_OVER_7}`);
     let responseData = await response.json()
-    console.log(responseData) 
 
     // Manipulating the HTML - adding and removing elements when the function is activated
     document.getElementById("quality-text-container").style.display = "none"
@@ -99,9 +96,6 @@ async function getTopRatedMovies() {
     // Getting the top rated movies
     let response = await fetch(`${BASE_URL}discover/tv?api_key=${API_KEY}${TV_RATING}`);
     let responseData = await response.json()
-    console.log(responseData)
-
-
     const movies = responseData.results
 
 
@@ -111,8 +105,6 @@ async function getTopRatedMovies() {
     let movie = movies.slice(0, 4)
 
     const movieContainer = document.getElementById("movie-container")
-
-    console.log(movie)
 
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
@@ -158,35 +150,6 @@ async function getTopRatedMovies() {
     topMovieWrapper.appendChild(topMovieRelease)
     topMovieRelease.innerHTML= `${yearOfRelease}`
 
-/*
-    
-    async function trailers() { 
-        let response= await fetch(`${BASE_URL}/tv/${id}/videos?api_key=${API_KEY}`);
-        let responseTrailerData = await response.json()
-    
-        console.log(responseTrailerData)
-    
-        const movieTrailer = responseTrailerData.results[0].key
-        console.log(movieTrailer)
-    
-    
-        const trailer = document.createElement("a")
-        trailer.classList.add("trailerButton")
-        topMovieWrapper.appendChild(trailer)
-        trailer.innerHTML = "Watch trailer"
-        trailer.href = `${TRAILER}${movieTrailer}`
-    
-        const youtubeIcon = document.createElement("img")
-        youtubeIcon.classList.add("youtube-icon")
-        trailer.appendChild(youtubeIcon)
-        youtubeIcon.src = "./images/youtube12px.svg"
-        youtubeIcon.alt = "youtube icon"
-
-    
-       }
-       trailers()
-
-*/
 
 })
 
@@ -199,9 +162,7 @@ async function getTopRatedMovies2000() {
 
     let response = await fetch(`${BASE_URL}discover/tv?api_key=${API_KEY}${TV_POPULARITY}`);
     let responseData = await response.json()
-    console.log(responseData)
-
-
+   
     const movies = responseData.results
 
     let movie = movies.slice(0, 4)
@@ -252,32 +213,6 @@ async function getTopRatedMovies2000() {
         topMovieWrapper.appendChild(topMovieRelease)
         topMovieRelease.innerHTML= `${yearOfRelease}`
 
-       /* async function trailers() { 
-            let response= await fetch(`${BASE_URL}/tv/${id}/videos?api_key=${API_KEY}`);
-            let responseTrailerData = await response.json()
-        
-            console.log(responseTrailerData)
-        
-            const movieTrailer = responseTrailerData.results[0].key
-            console.log(movieTrailer)
-        
-        
-            const trailer = document.createElement("a")
-            trailer.classList.add("trailerButton")
-            topMovieWrapper.appendChild(trailer)
-            trailer.innerHTML = "Watch trailer"
-            trailer.href = `${TRAILER}${movieTrailer}`
-        
-            const youtubeIcon = document.createElement("img")
-            youtubeIcon.classList.add("youtube-icon")
-            trailer.appendChild(youtubeIcon)
-            youtubeIcon.src = "./images/youtube12px.svg"
-            youtubeIcon.alt = "youtube icon"
-        
-           }
-           trailers()
-
-        */
 
 
     })

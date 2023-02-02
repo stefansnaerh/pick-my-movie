@@ -10,8 +10,6 @@ const TOP_MOVIES_POPULARITY = config.api_top_rated_popularity
 const TRAILER = config.trailer_base_url
 
 
-
-
 // getting a random page number since it always starts at page 1
 let PAGE_NUMBER = Math.floor(Math.random() * 108)
 
@@ -104,7 +102,6 @@ async function getTopRatedMovies() {
     // Getting the top rated movies
     let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES}`);
     let responseData = await response.json()
-    console.log(responseData)
 
     // storing the results in an array
     const movies = responseData.results
@@ -114,7 +111,6 @@ async function getTopRatedMovies() {
 
     const movieContainer = document.getElementById("movie-container")
 
-    console.log(movie)
 
 
 
@@ -168,11 +164,9 @@ async function getTopRatedMovies() {
     let response= await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
     let responseTrailerData = await response.json()
 
-    console.log(responseTrailerData)
+ 
 
     const movieTrailer = responseTrailerData.results[0].key
-    console.log(movieTrailer)
-
 
     const trailer = document.createElement("a")
     trailer.classList.add("trailerButton")
@@ -213,7 +207,7 @@ async function getTopMoviesPopularity() {
 
     let response = await fetch(`${BASE_URL}discover/movie?api_key=${API_KEY}${TOP_MOVIES_POPULARITY}`);
     let responseData = await response.json()
-    console.log(responseData)
+
 
     const movies = responseData.results
     const movie = movies.slice(0, 4)
@@ -269,12 +263,8 @@ async function getTopMoviesPopularity() {
             let response= await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
             let responseTrailerData = await response.json()
         
-            console.log(responseTrailerData)
-        
             const movieTrailer = responseTrailerData.results[0].key
-            console.log(movieTrailer)
-        
-        
+          
             const trailer = document.createElement("a")
             trailer.classList.add("trailerButton")
             topMovieWrapper.appendChild(trailer)

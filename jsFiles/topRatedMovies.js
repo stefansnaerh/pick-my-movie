@@ -28,8 +28,6 @@ async function getTopRatedMovies(page = 1) {
     const movieContainer = document.getElementById("movie-container")
     const movieContainerAll = document.getElementById("top-movies-container-all")
 
-    console.log(movie)
-
     // Using the forEach method to build the html for each element in movie array
     movie.forEach((movie) => {
  
@@ -83,11 +81,9 @@ async function getTopRatedMovies(page = 1) {
         let response= await fetch(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`);
         let responseTrailerData = await response.json()
     
-        console.log(responseTrailerData)
     
         const movieTrailer = responseTrailerData.results[0].key
-        console.log(movieTrailer)
-    
+
     
         const trailer = document.createElement("a")
         trailer.classList.add("trailerButton")
