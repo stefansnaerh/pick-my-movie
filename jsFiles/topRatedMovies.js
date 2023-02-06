@@ -108,7 +108,7 @@ async function getTopRatedMovies(page = 1) {
 getTopRatedMovies()
 
 
-// function that loads the next page from the API
+// function that loads the next page from the API    
 document.getElementById("load-more-button").addEventListener("click", function(){
     page = page + 1 
     getTopRatedMovies(page)
